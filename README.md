@@ -1,4 +1,4 @@
-# FROGER - Functional Re-annotation of the Eastern Oyster Genome
+# FROGER - Functional Re-annotation of Oyster Genomes with Epigenetic Resources 
 
 #### Date: May 20 - 23
 #### Location: [URI Alton Jones Campus Whispering Pines](https://web.uri.edu/wpinescc/)
