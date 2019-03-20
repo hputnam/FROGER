@@ -6,21 +6,21 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 ## Goals
 
-1. Describing Epigenetics in the Eastern Oyster Genome
+1. Annotating Epigenetic features in the Eastern Oyster Genome (EOG)
 
 	* DNA methylation
 	* Chromatin associated proteins
 	
-2. Quantitative Description of DNA methylation approaches in the EOG
-	* WGBS
-	* MBD - BS
-	* MSAP
+2. Comparison of DNA methylation quantification methods in the EOG
+	* WGBS - Whole Genome Bisulfite Sequencing
+	* MBD-BS - Methyl Binding Domain enrichment followed by bisulfite sequencing
+	* MSAP - Methylation Sensitive Amplification Polymorphism 
 
 ### Projected Products 
 
-1. Annotation for EOG and gap analysis for improved epigenetics annotation 
+1. Annotation for EOG and gap analysis for improved epigenetics annotation approaches
 
-2. Manuscript on methods comparison - target: Frontiers in Marine Science [Special Issue: Marine Environmental Epigenetics](https://www.frontiersin.org/research-topics/9475/marine-environmental-epigenetics#overview)	
+2. Manuscript on methods comparison for DNA methylation data - target: Frontiers in Marine Science [Special Issue: Marine Environmental Epigenetics](https://www.frontiersin.org/research-topics/9475/marine-environmental-epigenetics#overview)	
 	
 ### Potential Participants
 
