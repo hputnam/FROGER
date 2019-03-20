@@ -19,7 +19,7 @@
 
 1. Annotation for EOG and gap analysis for improved epigenetics annotation 
 
-2. Manuscript on methods comparison - target: Frontiers in Marine Science [FMS Special Issue](https://www.frontiersin.org/research-topics/9475/marine-environmental-epigenetics#overview)	
+2. Manuscript on methods comparison - target: Frontiers in Marine Science [Special Issue: Marine Environmental Epigenetics](https://www.frontiersin.org/research-topics/9475/marine-environmental-epigenetics#overview)	
 	
 ### Potential Participants
 
