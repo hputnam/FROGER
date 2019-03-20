@@ -1,6 +1,6 @@
 # FROGER - Functional Re-annotation of the Eastern Oyster Genome
 Date: May 20 - 23
-Location: URI Alton Jones Campus Whispering Pines
+Location: [URI Alton Jones Campus Whispering Pines](https://web.uri.edu/wpinescc/)
 
 ## Goals
 
@@ -22,17 +22,18 @@ Location: URI Alton Jones Campus Whispering Pines
 	
 ### Potential Participants
 
-Hollie Putnam
-Steven Roberts
-Jose Eirin-Lopez
-Kevin Johnson
-Sam Gurr
-Jon Puritz
-Katie Lotterhos
-Alan Downey Wall
-Yaamini Venkataraman
-Mackenzie Gavery
-Shelly Trigg
+* Hollie Putnam
+* Steven Roberts
+* Jose Eirin-Lopez
+* Kevin Johnson
+* Sam Gurr
+* Emma Strand
+* Jon Puritz
+* Katie Lotterhos
+* Alan Downey Wall
+* Yaamini Venkataraman
+* Mackenzie Gavery
+* Shelly Trigg
 
 ### Data Sources
 
