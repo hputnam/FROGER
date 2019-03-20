@@ -23,18 +23,18 @@
 	
 ### Potential Participants
 
-* Hollie Putnam
-* Steven Roberts
-* Jose Eirin-Lopez
-* Kevin Johnson
-* Sam Gurr
-* Emma Strand
-* Jon Puritz
-* Katie Lotterhos
-* Alan Downey Wall
-* Yaamini Venkataraman
-* Mackenzie Gavery
-* Shelly Trigg
+* Hollie Putnam - URI
+* Steven Roberts - UW
+* Jose Eirin-Lopez - FIU
+* Kevin Johnson - LSU
+* Sam Gurr - URI
+* Emma Strand - URI
+* Jon Puritz - URI
+* Katie Lotterhos - NEU
+* Alan Downey Wall - NEU
+* Yaamini Venkataraman - UW
+* Mackenzie Gavery - NOAA
+* Shelly Trigg - UW
 
 ### Data Sources
 
@@ -53,15 +53,15 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 
 * Breakfast at Conference Room
 
-09:30 - Introductions, Annotation Data resources
-11:00 coffee break
-11:15 - 12:30 - Data Overview and Gap analysis
-12:30 Lunch
-1:30 - 3:15 - Annotation work
-3:15 Coffee Break
-3:30 - 5:00 Annotation work and summary of day
-5:00 - 5:30 Introduction to data for day 2 methods comparison
-7:00 dinner
+09:30 - Introductions, Annotation Data resources  
+11:00 coffee break  
+11:15 - 12:30 - Data Overview and Gap analysis  
+12:30 Lunch  
+1:30 - 3:15 - Annotation work  
+3:15 Coffee Break  
+3:30 - 5:00 Annotation work and summary of day  
+5:00 - 5:30 Introduction to data for day 2 methods comparison  
+7:00 dinner  
 
 ##### May 22nd 
 
