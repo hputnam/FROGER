@@ -65,13 +65,13 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 
 ##### May 22nd 
 
-08:30 - Overview for day 2 methods comparison
-09:30 - 11:00 - Data Analysis and methods writing
-11:00 coffee break
-11:15 - 12:30 - Data Analysis and methods writing
-1:30 - 3:15 - Annotation work
-3:15 Coffee Break
-3:30 - 4:30 Data Analysis and methods writing
-4:30 - 5:30 Summary of progress for day 2, Setting goals and timelines for two products
-7:00 dinner
+08:30 - Overview for day 2 methods comparison  
+09:30 - 11:00 - Data Analysis and methods writing  
+11:00 coffee break  
+11:15 - 12:30 - Data Analysis and methods writing  
+1:30 - 3:15 - Annotation work  
+3:15 Coffee Break  
+3:30 - 4:30 Data Analysis and methods writing  
+4:30 - 5:30 Summary of progress for day 2, Setting goals and timelines for two products  
+7:00 dinner  
  
