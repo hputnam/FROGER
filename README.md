@@ -75,4 +75,11 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 3:30 - 4:30 Data Analysis and methods writing  
 4:30 - 5:30 Summary of progress for day 2, Setting goals and timelines for two products  
 7:00 dinner  
+
+##### May 23rd 
+
+08:30 - Overview for sections and timeline 
+09:30 - 11:00 - Breakout Groups
+11:00 coffee break  
+11:15 - 12:30 - Breakout Groups and sumary 
  
