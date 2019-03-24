@@ -10,6 +10,10 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 	* DNA methylation
 	* Chromatin associated proteins
+	* Transposable Elements
+	* CpG poor rich regions
+	* miRNA
+	* lncRNA
 	
 2. Comparison of DNA methylation quantification methods in the EOG
 	* WGBS - Whole Genome Bisulfite Sequencing
@@ -39,8 +43,8 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 ### Data Sources
 
-* Qiagen Data
-* Oil Spill
+* Qiagen Data (method comparison)
+* LSU Oil Exposure Data
 * Resequencing Data
 
 
@@ -78,8 +82,16 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 
 ##### May 23rd 
 
+<<<<<<< HEAD
 08:30 - Overview for sections and timeline   
 09:30 - 11:00 - Breakout Groups  
 11:00 coffee break    
 11:15 - 12:30 - Breakout Groups and sumary   
  
+=======
+08:30 - Overview for sections and timeline 
+09:30 - 11:00 - Breakout Groups
+11:00 coffee break  
+11:15 - 12:30 - Breakout Groups and sumary 
+ 
+>>>>>>> 9d67389c54923b0fa0c27820e327801a111bc3c1
