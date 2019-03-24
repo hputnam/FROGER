@@ -10,6 +10,10 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 	* DNA methylation
 	* Chromatin associated proteins
+	* Transposable Elements
+	* CpG poor rich regions
+	* miRNA
+	* lncRNA
 	
 2. Comparison of DNA methylation quantification methods in the EOG
 	* WGBS - Whole Genome Bisulfite Sequencing
@@ -39,8 +43,8 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 ### Data Sources
 
-* Qiagen Data
-* Oil Spill
+* Qiagen Data (method comparison)
+* LSU Oil Exposure Data
 * Resequencing Data
 
 
