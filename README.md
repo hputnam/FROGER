@@ -82,16 +82,8 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 
 ##### May 23rd 
 
-<<<<<<< HEAD
-08:30 - Overview for sections and timeline   
-09:30 - 11:00 - Breakout Groups  
-11:00 coffee break    
-11:15 - 12:30 - Breakout Groups and sumary   
- 
-=======
 08:30 - Overview for sections and timeline 
 09:30 - 11:00 - Breakout Groups
 11:00 coffee break  
 11:15 - 12:30 - Breakout Groups and sumary 
  
->>>>>>> 9d67389c54923b0fa0c27820e327801a111bc3c1
