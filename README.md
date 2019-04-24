@@ -1,7 +1,7 @@
 # FROGER - Functional Re-annotation of Oyster Genomes with Epigenetic Resources
 Funded by USDA NRSP-8 Aquaculture small project grant 
 
-#### Date: May 20 - 23
+#### Date: May 21 - 23 (half day)
 #### Location: [URI Alton Jones Campus Whispering Pines](https://web.uri.edu/wpinescc/)
 
 ## Goals
