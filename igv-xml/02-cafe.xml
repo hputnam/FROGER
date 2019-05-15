@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="http://owl.fish.washington.edu/halfshell/genomic-databank/Cvirginica_v300.fa" hasGeneTrack="false" hasSequenceTrack="true" locus="NC_035785.1:1-51258098" nextAutoscaleGroup="2" path="/Users/sr320/Documents/GitHub/FROGER/igv-xml/02-cafe.xml" version="8">
+    <Resources>
+        <Resource path="http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_Gnomon_exon.bed"/>
+        <Resource path="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/shared_con_Cvir_XP_BED_info_unique_shortened5.bed"/>
+        <Resource path="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/combined_con_exp_Cvir_shortened5.bed"/>
+        <Resource path="http://owl.fish.washington.edu/halfshell/genomic-databank/C_virginica-3.0_TE-all.gff"/>
+        <Resource path="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/shared_exp_Cvir_XP_BED_info_unique_shortened5.bed"/>
+        <Resource path="http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_Gnomon_mRNA.gff3"/>
+        <Resource path="http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_intron.bed"/>
+        <Resource path="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/virginica_exp_Cvir_XP_BED_info_unique_shortened5.bed"/>
+        <Resource path="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/virginica_con_Cvir_XP_BED_info_unique_shortened5.bed"/>
+    </Resources>
+    <Panel height="577" name="FeaturePanel" width="1133">
+        <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="Reference sequence" name="Reference sequence" sortable="false" visible="true"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" colorScale="ContinuousColorScale;0.0;123.0;255,255,255;0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_Gnomon_mRNA.gff3" name="C_virginica-3.0_Gnomon_mRNA.gff3" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="123.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,153,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_Gnomon_exon.bed" name="C_virginica-3.0_Gnomon_exon.bed" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="255,153,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_intron.bed" name="C_virginica-3.0_intron.bed" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="255,153,153" colorScale="ContinuousColorScale;0.0;1105.0;255,255,255;0,0,178" displayMode="EXPANDED" featureVisibilityWindow="-1" fontSize="10" id="http://owl.fish.washington.edu/halfshell/genomic-databank/C_virginica-3.0_TE-all.gff" name="C_virginica-3.0_TE-all.gff" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="1105.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="255,127,80" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/combined_con_exp_Cvir_shortened5.bed" name="combined_con_exp_Cvir_shortened5.bed" renderer="BASIC_FEATURE" sortable="true" visible="true" windowFunction="count"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="153,50,204" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/shared_con_Cvir_XP_BED_info_unique_shortened5.bed" name="shared_con_Cvir_XP_BED_info_unique_shortened5.bed" renderer="BASIC_FEATURE" sortable="true" visible="true" windowFunction="count"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/shared_exp_Cvir_XP_BED_info_unique_shortened5.bed" name="shared_exp_Cvir_XP_BED_info_unique_shortened5.bed" renderer="BASIC_FEATURE" sortable="true" visible="true" windowFunction="count"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="255,0,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/virginica_con_Cvir_XP_BED_info_unique_shortened5.bed" name="virginica_con_Cvir_XP_BED_info_unique_shortened5.bed" renderer="BASIC_FEATURE" sortable="true" visible="true" windowFunction="count"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,255,0" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="https://raw.githubusercontent.com/erinroberts/EOGC-CAFE-Gene-Family-analysis/master/IGV_TRACKS/virginica_exp_Cvir_XP_BED_info_unique_shortened5.bed" name="virginica_exp_Cvir_XP_BED_info_unique_shortened5.bed" renderer="BASIC_FEATURE" sortable="true" visible="true" windowFunction="count"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.01020408163265306"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
