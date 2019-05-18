@@ -44,7 +44,7 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 ### Data Sources
 
 * Qiagen Data (method comparison)
-* LSU Oil Exposure Data
+* [LSU Oil Exposure Data](https://github.com/hputnam/FROGER/wiki/Oil-Exposure-Data)
 * Resequencing Data
 
 
