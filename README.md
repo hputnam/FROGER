@@ -73,8 +73,8 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 08:30 - Overview for day 2 methods comparison  
 09:30 - 11:00 - Data Analysis and methods writing  
 11:00 coffee break  
-11:15 - 12:30 - Data Analysis and methods writing 
-12:30 Lunch   
+11:15 - 12:30 - Data Analysis and methods writing
+12:30 Lunch  
 1:30 - 3:15 - Annotation work  
 3:15 Coffee Break  
 3:30 - 4:30 Data Analysis and methods writing  
@@ -87,7 +87,7 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 09:30 - 11:00 - Breakout Groups  
 11:00 coffee break  
 11:15 - 12:30 - Breakout Groups and summary 
-12:30 Lunch 
+12:30 Lunch   
 
 Departure or continue on to Genomics workshop  
  
