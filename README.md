@@ -26,17 +26,17 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 2. Manuscript on methods comparison for DNA methylation data - target: Frontiers in Marine Science [Special Issue: Marine Environmental Epigenetics](https://www.frontiersin.org/research-topics/9475/marine-environmental-epigenetics#overview)	
 	
-### Potential Participants
+### Participants
 
 * Hollie Putnam - URI
 * Steven Roberts - UW
 * Jose Eirin-Lopez - FIU
 * Kevin Johnson - LSU
 * Sam Gurr - URI
-* Emma Strand - URI
 * Jon Puritz - URI
 * Katie Lotterhos - NEU
 * Alan Downey Wall - NEU
+* Bodie Weedop - NEU
 * Yaamini Venkataraman - UW
 * Mackenzie Gavery - NOAA
 * Shelly Trigg - UW
@@ -52,11 +52,11 @@ Funded by USDA NRSP-8 Aquaculture small project grant
 
 May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https://hamptoninn3.hilton.com/en/hotels/rhode-island/hampton-inn-south-kingstown-newport-area-NPTSKHX/index.html)
 
-* Dinner as at group in South County Commons 7:00pm
+* Dinner as at group meet in Lobby at 5:45pm
 
 ##### May 21st 08:00 meet in parking lot for transport to [URI Alton Jones Campus Whispering Pines](https://web.uri.edu/wpinescc/)
 
-* Breakfast at Conference Room
+* Breakfast at the hotel
 
 09:30 - Introductions, Annotation Data resources  
 11:00 coffee break  
@@ -73,7 +73,8 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 08:30 - Overview for day 2 methods comparison  
 09:30 - 11:00 - Data Analysis and methods writing  
 11:00 coffee break  
-11:15 - 12:30 - Data Analysis and methods writing  
+11:15 - 12:30 - Data Analysis and methods writing
+12:30 Lunch  
 1:30 - 3:15 - Annotation work  
 3:15 Coffee Break  
 3:30 - 4:30 Data Analysis and methods writing  
@@ -85,5 +86,8 @@ May 20th Arrive PVD in the afternoon and be transported to [Hampton Inn](https:/
 08:30 - Overview for sections and timeline   
 09:30 - 11:00 - Breakout Groups  
 11:00 coffee break  
-11:15 - 12:30 - Breakout Groups and summary  
+11:15 - 12:30 - Breakout Groups and summary
+12:30 Lunch
+
+Departure or continue on to Genomics workshop  
  
