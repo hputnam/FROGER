@@ -22,7 +22,11 @@ head ref_C_virginica-3.0_top_level.gff3
 ```
 
 ```{bash}
-grep "Gnomon	lnc_RNA" ref_C_virginica-3.0_top_level.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Parse out lncRNA. Be sure to include tab between Gnomon and lnc_RNA
+grep "gbkey=ncRNA" ref_C_virginica-3.0_top_level.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Parse out lncRNA and associated exons.
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_yrv.gff3
 ```
 
 ```{bash}
@@ -30,4 +34,18 @@ wc -l C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Number of lncRNA in the C.v genome
 ```
 
 # Describe lncRNA
+
+```{bash}
+awk '{print $1","$3","$4","$5}' C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.csv #Generate a .csv file
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_yrv.csv
+```
+
+```{r}
+lncRNA <- read.csv("C_virginica-3.0_Gnomon_lncRNA_yrv.csv", header = FALSE) #Import lncRNA csv file
+colnames(lncRNA) <- c("")
+head(lncRNA)
+```
 
