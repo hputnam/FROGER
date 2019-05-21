@@ -1,0 +1,101 @@
+---
+title: "lncRNA Description"
+author: "Yaamini Venkataraman"
+date: "5/21/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+sessionInfo()
+```
+
+# Generate lncRNA track
+
+```{bash}
+curl ftp://ftp.ncbi.nlm.nih.gov/genomes/Crassostrea_virginica/GFF/ref_C_virginica-3.0_top_level.gff3.gz > ref_C_virginica-3.0_top_level.gff3.gz #Download top-level file
+gunzip ref_C_virginica-3.0_top_level.gff3.gz
+head ref_C_virginica-3.0_top_level.gff3
+```
+
+```{bash}
+grep "gbkey=ncRNA" ref_C_virginica-3.0_top_level.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Parse out lncRNA and associated exons.
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_yrv.gff3
+```
+
+## Subset lncRNA only (no associated exons)
+
+```{bash}
+grep "lnc_RNA" C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+```
+
+## Create .csv file
+
+```{bash}
+awk '{print $1","$3","$4","$5}' C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.csv #Generate a .csv file
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_yrv.csv #Confirm file creation
+```
+
+```{r}
+lncRNAandExons <- read.csv("C_virginica-3.0_Gnomon_lncRNA_yrv.csv", header = FALSE) #Import lncRNA csv file
+colnames(lncRNAandExons) <- c("chr", "region", "start", "stop") #Add column headers
+head(lncRNAandExons) #Confirm changes
+```
+
+```{r}
+lncRNAOnly <- subset(lncRNAandExons, region == "lnc_RNA") #Subset out only lncRNA sections
+head(lncRNAOnly) #Confirm subset
+```
+
+## Number of lncRNA
+
+```{r}
+length(lncRNAOnly$region) #Count number of lncRNA (line entries)
+```
+
+## Overlaps between CG motifs
+
+```{bash}
+curl http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_CG-motif.bed > C_virginica-3.0_CG-motif.bed #Download CG motif track
+```
+
+```{bash}
+/Users/Shared/bioinformatics/bedtools2/bin/intersectBed -u -a C_virginica-3.0_CG-motif.bed -b C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3 | wc -l #CG motif overlaps with lncRNA (no associated exons)
+```
+
+## lncRNA lengths
+
+```{r}
+lncRNAOnly$length <- lncRNAOnly$stop - lncRNAOnly$start #Obtain lncRNA length
+head(lncRNAOnly)
+```
+
+```{r}
+par(mar = c(5, 5, 1, 1))
+hist(lncRNAOnly$length,
+     axes = FALSE,
+     col = "grey50",
+     xlab = "",
+     ylab = "",
+     main = "") #Rough histogram of lncRNA lengths
+axis(side = 1, at = seq(0, 120000, by = 20000), col = "grey80") #Add x-axis
+mtext(side = 1, "lncRNA Length", line = 3) #Add x-axis label
+axis(side = 2, at = seq(0, 4000, by = 1000), las = 2, col = "grey80") #Add y-axis
+mtext(side = 2, "Frequency", line = 4) #Add y-axis label
+```
+
+## Number of exons associated with lncRNA
+
