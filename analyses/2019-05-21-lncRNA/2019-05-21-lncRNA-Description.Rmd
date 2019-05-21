@@ -99,3 +99,39 @@ mtext(side = 2, "Frequency", line = 4) #Add y-axis label
 
 ## Number of exons associated with lncRNA
 
+### Count number of associated exons
+
+```{r}
+head(lncRNAOnly) #The "rownames" are essentially line numbers, where all line numbers aren't included were exon entries. To count the number of exons associated with each lncRNA, I can subtract the line numbers from eachother, then subtract 1. For example, there are 5-1-1 = 3 exons associated with the first lncRNA (lines 2, 3, 4), and 10-5-1 = 4 exons associated with the second lncRNA (lines 6, 7, 8, 9).
+```
+
+```{r}
+lncRNAOnly$rowNumbers <- as.numeric(rownames(lncRNAOnly)) #Save rownames in a new column
+lncRNAOnly$numberExons <- rep(0, length(lncRNAOnly$chr)) #Create a new column to store number of associated exons
+head(lncRNAOnly)
+```
+
+```{r}
+for (i in 2:length(lncRNAOnly$rowNumbers)) {
+  lncRNAOnly$numberExons[i-1] <- lncRNAOnly$rowNumbers[i] - lncRNAOnly$rowNumbers[i-1] - 1
+} #Count number of associated exons
+lncRNAOnly$numberExons[length(lncRNAOnly$numberExons)] <- length(lncRNAandExons$chr) - lncRNAOnly$rowNumbers[length(lncRNAOnly$rowNumbers)] #Manually count exons associated with the last lncRNA
+tail(lncRNAOnly) #Confirm counting worked.
+```
+
+### Visualize data
+
+```{r}
+par(mar = c(5, 5, 1, 1))
+hist(lncRNAOnly$numberExons,
+     axes = FALSE,
+     col = "grey50",
+     xlab = "",
+     ylab = "",
+     main = "",
+     ylim = c(0, 4500)) #Rough histogram of lncRNA lengths
+axis(side = 1, at = seq(0, 50, by = 10), col = "grey80") #Add x-axis
+mtext(side = 1, "Number of associated exons", line = 3) #Add x-axis label
+axis(side = 2, at = seq(0, 4000, by = 1000), las = 2, col = "grey80") #Add y-axis
+mtext(side = 2, "Frequency", line = 4) #Add y-axis label
+```
