@@ -29,10 +29,6 @@ grep "gbkey=ncRNA" ref_C_virginica-3.0_top_level.gff3 > C_virginica-3.0_Gnomon_l
 head C_virginica-3.0_Gnomon_lncRNA_yrv.gff3
 ```
 
-```{bash}
-wc -l C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Number of lncRNA in the C.v genome
-```
-
 # Describe lncRNA
 
 ```{bash}
@@ -40,12 +36,62 @@ awk '{print $1","$3","$4","$5}' C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virgi
 ```
 
 ```{bash}
-head C_virginica-3.0_Gnomon_lncRNA_yrv.csv
+head C_virginica-3.0_Gnomon_lncRNA_yrv.csv #Confirm file creation
 ```
 
 ```{r}
-lncRNA <- read.csv("C_virginica-3.0_Gnomon_lncRNA_yrv.csv", header = FALSE) #Import lncRNA csv file
-colnames(lncRNA) <- c("")
-head(lncRNA)
+lncRNAandExons <- read.csv("C_virginica-3.0_Gnomon_lncRNA_yrv.csv", header = FALSE) #Import lncRNA csv file
+colnames(lncRNAandExons) <- c("chr", "region", "start", "stop") #Add column headers
+head(lncRNAandExons) #Confirm changes
 ```
+
+```{r}
+lncRNAOnly <- subset(lncRNAandExons, region == "lnc_RNA") #Subset out only lncRNA sections
+head(lncRNAOnly) #Confirm subset
+```
+
+## Number of lncRNA
+
+```{r}
+length(lncRNAOnly$region) #Count number of lncRNA (line entries)
+```
+
+## Overlaps between CG motifs
+
+```{bash}
+curl http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_CG-motif.bed > C_virginica-3.0_CG-motif.bed #Download CG motif track
+```
+
+```{bash}
+grep "lnc_RNA" C_virginica-3.0_Gnomon_lncRNA_yrv.gff > C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+```
+
+
+```{bash}
+/Users/Shared/bioinformatics/bedtools2/bin/intersectBed -u -a C_virginica-3.0_CG-motif.bed -b {lncRNAList} | wc -l #CG motif overlaps with lncRNA
+```
+
+## lncRNA lengths
+
+
+```{r}
+lncRNAOnly$length <- lncRNAOnly$stop - lncRNAOnly$start #Obtain lncRNA length
+head(lncRNAOnly)
+```
+
+```{r}
+par(mar = c(5, 5, 1, 1))
+hist(lncRNAOnly$length,
+     axes = FALSE,
+     col = "grey50",
+     xlab = "",
+     ylab = "",
+     main = "") #Rough histogram of lncRNA lengths
+axis(side = 1, at = seq(0, 120000, by = 20000), col = "grey80") #Add x-axis
+mtext(side = 1, "lncRNA Length", line = 3) #Add x-axis label
+axis(side = 2, at = seq(0, 4000, by = 1000), las = 2, col = "grey80") #Add y-axis
+mtext(side = 2, "Frequency", line = 4) #Add y-axis label
+```
+
+## Number of exons associated with lncRNA
 
