@@ -63,7 +63,11 @@ curl http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_CG-motif.bed 
 ```
 
 ```{bash}
-grep "lnc_RNA" C_virginica-3.0_Gnomon_lncRNA_yrv.gff > C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+grep "lnc_RNA" C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
 ```
 
 
