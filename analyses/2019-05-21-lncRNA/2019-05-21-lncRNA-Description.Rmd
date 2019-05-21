@@ -29,7 +29,17 @@ grep "gbkey=ncRNA" ref_C_virginica-3.0_top_level.gff3 > C_virginica-3.0_Gnomon_l
 head C_virginica-3.0_Gnomon_lncRNA_yrv.gff3
 ```
 
-# Describe lncRNA
+## Subset lncRNA only (no associated exons)
+
+```{bash}
+grep "lnc_RNA" C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+```
+
+```{bash}
+head C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
+```
+
+## Create .csv file
 
 ```{bash}
 awk '{print $1","$3","$4","$5}' C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.csv #Generate a .csv file
@@ -63,16 +73,7 @@ curl http://eagle.fish.washington.edu/Cvirg_tracks/C_virginica-3.0_CG-motif.bed 
 ```
 
 ```{bash}
-grep "lnc_RNA" C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 > C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
-```
-
-```{bash}
-head C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3
-```
-
-
-```{bash}
-/Users/Shared/bioinformatics/bedtools2/bin/intersectBed -u -a C_virginica-3.0_CG-motif.bed -b {lncRNAList} | wc -l #CG motif overlaps with lncRNA
+/Users/Shared/bioinformatics/bedtools2/bin/intersectBed -u -a C_virginica-3.0_CG-motif.bed -b C_virginica-3.0_Gnomon_lncRNA_noexons_yrv.gff3 | wc -l #CG motif overlaps with lncRNA (no associated exons)
 ```
 
 ## lncRNA lengths
