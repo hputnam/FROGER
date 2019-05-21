@@ -1,0 +1,33 @@
+---
+title: "lncRNA Description"
+author: "Yaamini Venkataraman"
+date: "5/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+sessionInfo()
+```
+
+# Generate lncRNA track
+
+```{bash}
+curl ftp://ftp.ncbi.nlm.nih.gov/genomes/Crassostrea_virginica/GFF/ref_C_virginica-3.0_top_level.gff3.gz > ref_C_virginica-3.0_top_level.gff3.gz #Download top-level file
+gunzip ref_C_virginica-3.0_top_level.gff3.gz
+head ref_C_virginica-3.0_top_level.gff3
+```
+
+```{bash}
+grep "Gnomon	lnc_RNA" ref_C_virginica-3.0_top_level.gff3 > C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Parse out lncRNA. Be sure to include tab between Gnomon and lnc_RNA
+```
+
+```{bash}
+wc -l C_virginica-3.0_Gnomon_lncRNA_yrv.gff3 #Number of lncRNA in the C.v genome
+```
+
+# Describe lncRNA
+
