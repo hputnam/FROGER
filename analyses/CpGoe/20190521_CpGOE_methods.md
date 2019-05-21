@@ -51,10 +51,10 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 -fo .{}_EXONS.fa```
 
 ## CAP
-```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+```find ../../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
--bed CAP_CpGoe_CAP_sorted \
+-fi ../../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-bed CAP_sorted.bed \
 -fo .{}_CAP.fa```
 
 # Calculate CpG Observed / Expected Ratio 
