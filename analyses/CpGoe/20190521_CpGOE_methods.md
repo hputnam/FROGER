@@ -30,25 +30,25 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 # Obtain feature level fasta files for all samples
 
 ## GENE
-```find /Volumes/Serine/wd/19-01-08/*.fa \
+```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi /Volumes/Serine/wd/19-01-08/{}.fa \
+-fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
--fo /Volumes/Serine/wd/19-01-08/{}_GENE.fa```
+-fo {}_GENE.fa```
 
 ## CDS
-```find /Volumes/Serine/wd/19-01-08/*.fa \
+```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi /Volumes/Serine/wd/19-01-08/{}.fa \
+-fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
--fo /Volumes/Serine/wd/19-01-08/{}_CDS.fa```
+-fo {}_CDS.fa```
 
 ## EXONS
-```find /Volumes/Serine/wd/19-01-08/*.fa \
+```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi /Volumes/Serine/wd/19-01-08/{}.fa \
+-fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
--fo /Volumes/Serine/wd/19-01-08/{}_EXONS.fa```
+-fo .{}_EXONS.fa```
 
 # Calculate CpG Observed / Expected Ratio 
 
