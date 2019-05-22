@@ -1,16 +1,15 @@
 # Qiagen WGBS MBD-BS and RRBS data
 
-Bismark Bisulfite Mapper V0.18.2 “ map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step”
+Bismark Bisulfite Mapper VX “ map bisulfite treated sequencing reads to a genome of interest and perform methylation calls in a single step”
 
 Bismark: a flexible aligner and methylation caller for Bisulfite-Seq applications
 
 requires bowtie2, samtools, perl
 
-* Bowtie 2 version 2.27.1 by Ben Langmead (langmea@cs.jhu.edu, www.cs.jhu.edu/~langmea)
-* Program: samtools (Tools for alignments in the SAM format)
-Version: 0.1.19-44428cd
-* perl v5.14.2 
-* Bismark Bisulfite Mapper V0.18.2 2016-03-01 
+* Bowtie 2 version X by Ben Langmead (langmea@cs.jhu.edu, www.cs.jhu.edu/~langmea)
+* Program: samtools (Tools for alignments in the SAM format) Version: X
+* perl X 
+* Bismark Bisulfite Mapper VX 
 
 
 mkdir FROGER
