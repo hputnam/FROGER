@@ -38,4 +38,5 @@ STACKED_CAP_CpGoe$population <- gsub("_.*","",STACKED_CAP_CpGoe$sample)
 
 
 library(ggplot2)
-ggplot(STACKED_CAP_CpGoe, aes(population, CpGoe)) + geom_boxplot(aes(fill = population)) +theme_bw()
+g <- ggplot(STACKED_CAP_CpGoe, aes(population, CpGoe)) + geom_boxplot(aes(fill = population)) +theme_bw()
+ggsave("~/Documents/GitHub/FROGER/analyses/CAP_CpGoe/CAP_CpGoe_genes_by_pop_boxplot.jpg",g)
