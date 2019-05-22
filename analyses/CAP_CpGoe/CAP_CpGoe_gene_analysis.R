@@ -64,7 +64,7 @@ CAP_CpGoe_SD$SD <- apply(CAP_CpGoe_SD[,-1],1,sd)
 CAP_CpGoe_SD_not_zero <- CAP_CpGoe_SD[which(CAP_CpGoe_SD$SD != 0),-c(1,92)]
 rownames(CAP_CpGoe_SD_not_zero) <- CAP_CpGoe_SD[which(CAP_CpGoe_SD$SD != 0),"CAP_ID"]
 
-heatmap3(CAP_CpGoe_SD_not_zero, scale = none)
+heatmap3(CAP_CpGoe_SD_not_zero, scale = "none")
 
 #try log transforming CpGoe ratios
 CAP_CpGoe_SD_not_zero_log <- log(CAP_CpGoe_SD_not_zero,2)
@@ -77,3 +77,6 @@ STACKED_CAP_CpGoe_SD_not_zero <- tidyr::gather(STACKED_CAP_CpGoe_SD_not_zero, "s
 STACKED_CAP_CpGoe_SD_not_zero$population <- gsub("_.*","",STACKED_CAP_CpGoe_SD_not_zero$sample)
 
 ggplot(STACKED_CAP_CpGoe_SD_not_zero) + geom_density(aes(CpGoe,group = sample)) + facet_wrap(~population) 
+
+#
+exclude
