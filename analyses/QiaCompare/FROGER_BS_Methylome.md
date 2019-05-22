@@ -32,61 +32,81 @@ mv GENOME/GCF_002022765.2_C_virginica-3.0_genomic.fna.gz GENOME/GCF_002022765.2_
 /home/shared/Bismark-0.19.1/bismark_genome_preparation GENOME
 
 
-
+## Unzip files
+cd FROGER/RAW
+unzip Archive.zip
 
 
 ## Count raw reads
-```cd ~/Mcap_WGBS/Genome_Compare```
 
-```zgrep -c "@D00796" W*.fastq.gz```
+```zgrep -c "@M03" *.fastq.gz```
 
-* W5_S1_L001_R1_001.fastq.gz:93825967
-* W5_S1_L001_R2_001.fastq.gz:93825967
-* W19_S2_L001_R1_001.fastq.gz:83342363
-* W19_S2_L001_R2_001.fastq.gz:83342363
+10_32_S32_L001_R1_001.fastq.gz:574346
+10_32_S32_L001_R2_001.fastq.gz:574346
+11_37_S37_L001_R1_001.fastq.gz:695562
+11_37_S37_L001_R2_001.fastq.gz:695562
+12_38_S38_L001_R1_001.fastq.gz:865269
+12_38_S38_L001_R2_001.fastq.gz:865269
+1_25_S25_L001_R1_001.fastq.gz:488137
+1_25_S25_L001_R2_001.fastq.gz:488137
+13_33_S33_L001_R1_001.fastq.gz:645468
+13_33_S33_L001_R2_001.fastq.gz:645468
+14_34_S34_L001_R1_001.fastq.gz:691626
+14_34_S34_L001_R2_001.fastq.gz:691626
+15_39_S39_L001_R1_001.fastq.gz:671325
+15_39_S39_L001_R2_001.fastq.gz:671325
+16_40_S40_L001_R1_001.fastq.gz:771805
+16_40_S40_L001_R2_001.fastq.gz:771805
+17_9_S9_L001_R1_001.fastq.gz:403861
+17_9_S9_L001_R2_001.fastq.gz:403861
+18_10_S10_L001_R1_001.fastq.gz:525421
+18_10_S10_L001_R2_001.fastq.gz:525421
+19_7_S7_L001_R1_001.fastq.gz:371667
+19_7_S7_L001_R2_001.fastq.gz:371667
+20_8_S8_L001_R1_001.fastq.gz:314922
+20_8_S8_L001_R2_001.fastq.gz:314922
+2_26_S26_L001_R1_001.fastq.gz:168954
+2_26_S26_L001_R2_001.fastq.gz:168954
+3_27_S27_L001_R1_001.fastq.gz:231652
+3_27_S27_L001_R2_001.fastq.gz:231652
+4_28_S28_L001_R1_001.fastq.gz:279065
+4_28_S28_L001_R2_001.fastq.gz:279065
+5_35_S35_L001_R1_001.fastq.gz:21862
+5_35_S35_L001_R2_001.fastq.gz:21862
+6_36_S36_L001_R1_001.fastq.gz:31352
+6_36_S36_L001_R2_001.fastq.gz:31352
+7_29_S29_L001_R1_001.fastq.gz:612994
+7_29_S29_L001_R2_001.fastq.gz:612994
+8_30_S30_L001_R1_001.fastq.gz:665233
+8_30_S30_L001_R2_001.fastq.gz:665233
+9_31_S31_L001_R1_001.fastq.gz:595446
+9_31_S31_L001_R2_001.fastq.gz:595446
 
 ## QC Raw Data 
-```mkdir ~/Mcap_WGBS/Genome_Compare/Raw_QC_Files```
+cd ..
+mkdir QC
+cd QC
+mkdir RAW_QC
 
-```nohup ~/programs/FastQC/fastqc /home/hputnam/Mcap_WGBS/Samples/*.fastq.gz -o ~/Mcap_WGBS/Genome_Compare/Raw_QC_Files```
+/home/shared/fastqc_0.11.7/fastqc ~/FROGER/RAW/*.fastq.gz -o ~/FROGER/QC/RAW_QC
 
-```cd ~/Mcap_WGBS/Genome_Compare```
+/home/shared/MultiQC/scripts/multiqc ~/FROGER/QC/RAW_QC
 
-## Trim Adapters
-* cutadapt 1.11 with Python 2.7.0
+## Download and view QC data
+scp srlab@emu.fish.washington.edu:/home/srlab/FROGER/QC/RAW_QC/multiqc_report.html MyProjects/FROGER/
 
-``mkdir Trimmed``
-``cd Trimmed``
+Data are 75bp paired end reads that have already been trimmed
 
-Command line parameters: -q 30 -m 21 -a AGATCGGAAGAGC -A AGATCGGAAGAGC -o W5_R1.trimmed.fq.gz -p W5_R2.trimmed.fq.gz W5_R1_PF.fastq.gz W5_R2_PF.fastq.gz
 
-```nohup ~/programs/cutadapt-1.8.3/bin/cutadapt -a AGATCGGAAGAGC -q 30 -o ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz ~/Mcap_WGBS/Samples/W5_S1_L001_R1_001.fastq.gz```
 
-```nohup ~/programs/cutadapt-1.8.3/bin/cutadapt -a AGATCGGAAGAGC -q 30 -o ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz ~/Mcap_WGBS/Samples/W5_S1_L001_R2_001.fastq.gz >> nohup2.out&```
 
-```nohup ~/programs/cutadapt-1.8.3/bin/cutadapt -a AGATCGGAAGAGC -q 30 -o ~/Mcap_WGBS/Genome_Compare/Trimmed/W19_R1.trimmed.fastq.gz ~/Mcap_WGBS/Samples/W19_S2_L001_R1_001.fastq.gz >> nohup3.out&```
 
-```nohup ~/programs/cutadapt-1.8.3/bin/cutadapt -a AGATCGGAAGAGC -q 30 -o ~/Mcap_WGBS/Genome_Compare/Trimmed/W19_R2.trimmed.fastq.gz ~/Mcap_WGBS/Samples/W19_S2_L001_R2_001.fastq.gz >> nohup4.out&```
 
-## Count Trimmed reads
 
-```zgrep -c "@D00796" ~/Mcap_WGBS/Genome_Compare/Trimmed/W*.fastq.gz```
 
-* W5_R1.trimmed.fastq.gz:93825967
-* W5_R2.trimmed.fastq.gz:93825967
-* W19_R1.trimmed.fastq.gz:83342363
-* W19_R2.trimmed.fastq.gz:83342363 
 
-```cd ~/Mcap_WGBS/Genome_Compare```
 
-## QC Trimmed and Quality Filtered Data
 
-```mkdir Trimmed_QC_Files```
-```cd Trimmed_QC_Files```
-
-```nohup ~/programs/FastQC/fastqc ~/Mcap_WGBS/Genome_Compare/Trimmed/W*.fastq.gz -o ~/Mcap_WGBS/Genome_Compare/Trimmed_QC_Files```
-
-```cd ~/Mcap_WGBS/Genome_Compare```
 
 ## Pool Samples to run combined
 concatenate all Read 1 and all Read 2 for a generic methylome of both samples to determine mapping and coverage
@@ -106,12 +126,10 @@ Option 0
 
 W5 = 27.4%
 
-###### Option 1
+Option 1
 ```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.6 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz -p 12 --bam```
 
 * W5 = 62.8% mapping
-
-```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.6 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W19_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W19_R2.trimmed.fastq.gz -p 12 --bam >> nohup2.out&```
 
 Option 2
 ```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.9 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz -p 12 --bam```
