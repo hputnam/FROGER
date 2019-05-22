@@ -91,12 +91,14 @@ WINDOWS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21
 
 # Calculate CpG Observed / Expected Ratio 
 
+```
 mkdir ${analyses_dir}
+```
 
 # Create arrays of all FastA files
 
 ```
-fa_array=(${data_dir}/*GENE.fa)
+fa_array=(${data_dir}/*{TYPE}.fa)
 
 less
 time \
@@ -147,6 +149,16 @@ do
   > ID_CpG
 done
 ```
+
+GENE executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/GENE_CpGoe/
+
+CDS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CDS_CpGoe/
+
+EXONS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/EXONS_CpGoe/
+
+CAP executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CAP_CpGoe/2019-05-22-CAP-Array-Script.sh
+
+WINDOWS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/WINDOWS_CpGoe/2019-05-22-WINDOWS-Array-Script.sh
 
 ## Append CpG oe to sample specific headers
 
