@@ -80,9 +80,13 @@ find ../*.fa \
 ```
 
 GENE files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/GENE_CpGoe
+
 CDS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CDS_CpGoe
+
 EXONS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/EXONS_CpGoe
+
 CAP files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CAP_CpGoe/
+
 WINDOWS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/WINDOWS_CpGoe/
 
 # Calculate CpG Observed / Expected Ratio 
@@ -90,6 +94,8 @@ WINDOWS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21
 mkdir ${analyses_dir}
 
 # Create arrays of all FastA files
+
+```
 fa_array=(${data_dir}/*GENE.fa)
 
 less
@@ -140,7 +146,7 @@ do
   gawk '{print $1, "\t", (($4)/($5*$6))*(($3^2)/($3-1))}' comb \
   > ID_CpG
 done
-
+```
 
 ## Append CpG oe to sample specific headers
 
