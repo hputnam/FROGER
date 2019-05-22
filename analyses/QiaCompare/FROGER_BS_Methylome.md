@@ -605,28 +605,74 @@ C methylated in CHH context:    0.4%
 #### WGBS
 /home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/DeDup/WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.sam 
 ### Final Cytosine Methylation Report WGBS
+Parameters used to extract methylation information:
+Bismark Extractor Version: v0.19.1
+Bismark result file: paired-end (SAM format)
+Ignoring first 2 bp of Read 2
+Output specified: strand-specific (default)
+No overlapping methylation calls specified
 
+
+Processed 553705 lines in total
+Total number of methylation call strings processed: 1107410
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:   11044874
+
+Total methylated C's in CpG context:    129557
+Total methylated C's in CHG context:    7557
+Total methylated C's in CHH context:    93332
+
+Total C to T conversions in CpG context:        1378239
+Total C to T conversions in CHG context:        2056342
+Total C to T conversions in CHH context:        7379847
+
+C methylated in CpG context:    8.6%
+C methylated in CHG context:    0.4%
+C methylated in CHH context:    1.2%
 
 #### MBD_BS
-/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/DeDup/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.sam
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/DeDup/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.sam
 ### Final Cytosine Methylation Report MBD_BS
+Parameters used to extract methylation information:
+Bismark Extractor Version: v0.19.1
+Bismark result file: paired-end (SAM format)
+Ignoring first 2 bp of Read 2
+Output specified: strand-specific (default)
+No overlapping methylation calls specified
 
 
+Processed 2146096 lines in total
+Total number of methylation call strings processed: 4292192
 
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:   50300415
 
+Total methylated C's in CpG context:    5128909
+Total methylated C's in CHG context:    100854
+Total methylated C's in CHH context:    287545
 
+Total C to T conversions in CpG context:        1913810
+Total C to T conversions in CHG context:        10832664
+Total C to T conversions in CHH context:        32036633
+
+C methylated in CpG context:    72.8%
+C methylated in CHG context:    0.9%
+C methylated in CHH context:    0.9%
 
 
 
 # STOP HERE
 
 ### Genome wide C methylation
-R1.trimmed_bismark_bt2_pe.deduplicated.CpG_report.txt.gz
 
-```zcat R1.trimmed_bismark_bt2_pe.deduplicated.CpG_report.txt.gz > All.CpG_report.txt```
 
-```wc -l All.CpG_report.txt```
-57,350,516
+```zcat WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.CpG_report.txt.gz > All.WGBS_CpG_report.txt```
+
+```wc -l All.WGBS_CpG_report.txt```
+28917406
 
 * get + strand only
  
