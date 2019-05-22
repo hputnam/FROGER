@@ -97,6 +97,41 @@ scp srlab@emu.fish.washington.edu:/home/srlab/FROGER/QC/RAW_QC/multiqc_report.ht
 
 Data are 75bp paired end reads that have already been trimmed
 
+Qiagen tech indicates we need to trim first 8 bases from all files. We can see this in the QC reports as well
+
+
+# Trimming
+mkdir hardtrim
+cd hardtrim
+
+for file in '/FROGER/RAW/*.fastq.gz'
+do
+echo $file
+java -jar /home/shared/Trimmomatic-0.36/trimmomatic-0.36.jar PE -basein ~/FROGER/RAW/10_32_S32_L001_R1_001.fastq.gz HEADCROP:8  -baseout 10_32_S32_L001_R1_001.fastq.gz
+java -jar /home/shared/Trimmomatic-0.36/trimmomatic-0.36.jar PE -basein ~/FROGER/RAW/11_37_S37_L001_R1_001.fastq.gz HEADCROP:8  -baseout 11_37_S37_L001_R1_001.fastq.gz
+
+
+
+12_38_S38_L001_R1_001.fastq.gz 
+13_33_S33_L001_R1_001.fastq.gz 
+14_34_S34_L001_R1_001.fastq.gz
+15_39_S39_L001_R1_001.fastq.gz
+16_40_S40_L001_R1_001.fastq.gz
+17_9_S9_L001_R1_001.fastq.gz
+18_10_S10_L001_R1_001.fastq.gz
+19_7_S7_L001_R1_001.fastq.gz
+1_25_S25_L001_R1_001.fastq.gz
+20_8_S8_L001_R1_001.fastq.gz
+2_26_S26_L001_R1_001.fastq.gz
+3_27_S27_L001_R1_001.fastq.gz
+4_28_S28_L001_R1_001.fastq.gz
+5_35_S35_L001_R1_001.fastq.gz
+6_36_S36_L001_R1_001.fastq.gz
+7_29_S29_L001_R1_001.fastq.gz
+8_30_S30_L001_R1_001.fastq.gz
+9_31_S31_L001_R1_001.fastq.gz
+
+
 
 
 
