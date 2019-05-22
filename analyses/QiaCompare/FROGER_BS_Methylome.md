@@ -470,11 +470,31 @@ Bismark run complete
 ```cd Dedup```
 
  /home/shared/Bismark-0.19.1/deduplicate_bismark ~/FROGER/Mapped/WGBS/WGBS_R1.trimmed_bismark_bt2_pe.bam
- * retained X%
+ * retained 99.45%
+Output file is: WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.sam
+
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:NC_035780.1	LN:65668440
+skipping header line:	@SQ	SN:NC_035781.1	LN:61752955
+skipping header line:	@SQ	SN:NC_035782.1	LN:77061148
+skipping header line:	@SQ	SN:NC_035783.1	LN:59691872
+skipping header line:	@SQ	SN:NC_035784.1	LN:98698416
+skipping header line:	@SQ	SN:NC_035785.1	LN:51258098
+skipping header line:	@SQ	SN:NC_035786.1	LN:57830854
+skipping header line:	@SQ	SN:NC_035787.1	LN:75944018
+skipping header line:	@SQ	SN:NC_035788.1	LN:104168038
+skipping header line:	@SQ	SN:NC_035789.1	LN:32650045
+skipping header line:	@SQ	SN:NC_007175.2	LN:17244
+skipping header line:	@PG	ID:Bismark	VN:v0.19.1	CL:"bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/WGBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/WGBS_R2.trimmed.fastq.gz"
+
+Total number of alignments analysed in /home/srlab/FROGER/Mapped/WGBS/WGBS_R1.trimmed_bismark_bt2_pe.bam:	556744
+Total number duplicated alignments removed:	3039 (0.55%)
+Duplicated alignments were found at:	2848 different position(s)
+
+Total count of deduplicated leftover sequences: 553705 (99.45% of total)
 
 
-
- /home/shared/Bismark-0.19.1/deduplicate_bismark MBD_BS_R1.trimmed_bismark_bt2_pe.bam
+ /home/shared/Bismark-0.19.1/deduplicate_bismark /home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.bam
  * retained X%
  
 
