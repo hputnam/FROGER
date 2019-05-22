@@ -30,39 +30,54 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 # Obtain feature level fasta files for all samples
 
 ## GENE
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
--fo {}_GENE.fa```
+-fo {}_GENE.fa
+```
 
 ## CDS
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
--fo {}_CDS.fa```
+-fo {}_CDS.fa
+```
 
 ## EXONS
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
--fo {}_EXONS.fa```
+-fo {}_EXONS.fa
+```
 
 ## CAP
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed CAP_sorted.bed \
--fo {}_CAP.fa```
+-fo {}_CAP.fa
+```
 
 ## WINDOWS
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica.3.0_genomic.1kb_window_500bp_step.gff3 \
--fo {}_1kb_window_500bp_step.fa```
+-fo {}_1kb_window_500bp_step.fa
+```
 
 GENE files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/GENE_CpGoe
 CDS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CDS_CpGoe
@@ -77,7 +92,7 @@ mkdir ${analyses_dir}
 # Create arrays of all FastA files
 fa_array=(${data_dir}/*GENE.fa)
 
-
+less
 time \
 for fa in "${fa_array[@]}"
 do
