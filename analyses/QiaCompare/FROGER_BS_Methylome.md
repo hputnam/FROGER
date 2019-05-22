@@ -460,9 +460,6 @@ Bismark run complete
 ====================
 
 
-# STOP HERE
-
-
 ## Deduplicate Data for MBD and WGBS
 
 ```mkdir DeDup```
@@ -529,6 +526,8 @@ zgrep -v '>' /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.f
 ###Final Cytosine Methylation Report MBD_BS
 
 
+
+# STOP HERE
 
 ### Genome wide C methylation
 R1.trimmed_bismark_bt2_pe.deduplicated.CpG_report.txt.gz
