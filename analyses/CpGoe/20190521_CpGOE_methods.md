@@ -57,6 +57,9 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 -bed CAP_sorted.bed \
 -fo {}_CAP.fa```
 
+GENE, CDS, EXONS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
+CAP files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CAP_CpGoe/
+
 # Calculate CpG Observed / Expected Ratio 
 
 mkdir ${analyses_dir}
