@@ -160,32 +160,35 @@ CAP executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FRO
 
 WINDOWS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/WINDOWS_CpGoe/2019-05-22-WINDOWS-Array-Script.sh
 
-## Append CpG oe to sample specific headers
+# Append sample-specific headers to each ID_CpG file and join all ID_CpG files.
 
-#!/bin/bash
+```cd ${analyses_dir}```
 
-## Script to append sample-specific headers to each ID_CpG
-## file and join all ID_CpG files.
+## Temp file placeholder
 
-## Run file from within this directory.
+```tmp=$(mktemp)```
 
-# Temp file placeholder
-tmp=$(mktemp)
+## Create array of subdirectories.
 
-# Create array of subdirectories.
-array=(*/)
+```array=(*/)```
 
-# Create column headers for ID_CpG files using sample name from directory name.
+## Create column headers for ID_CpG files using sample name from directory name.
+
+```
 for file in ${array[@]}
 do
   gene=$(echo ${file} | awk -F\[._] '{print $6"_"$7}')
   sed "1iID\t${gene}" ${file}ID_CpG > ${file}ID_CpG_labelled
 done
+```
 
-# Create initial file for joining
-cp ${array[0]}ID_CpG_labelled ID_CpG_labelled_all
+## Create initial file for joining
 
-# Loop through array and performs joins.
+```cp ${array[0]}ID_CpG_labelled ID_CpG_labelled_all```
+
+## Loop through array and performs joins.
+
+```
 for file in ${array[@]:1}
 do
   join \
@@ -195,5 +198,6 @@ do
   > ${tmp} \
   && mv ${tmp} ID_CpG_labelled_all
 done
+```
 
 
