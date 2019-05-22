@@ -30,59 +30,45 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 # Obtain feature level fasta files for all samples
 
 ## GENE
-```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+```find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
--bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
--fo {}_GENE.fa```
-
-```find ../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
-| xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
 -fo {}_GENE.fa```
 
 ## CDS
-```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+```find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
--bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
--fo {}_CDS.fa```
-
-```find ../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
-| xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
 -fo {}_CDS.fa```
 
 ## EXONS
-```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+```find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
--bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
--fo {}_EXONS.fa```
-
-```find ../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
-| xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
 -fo {}_EXONS.fa```
 
 ## CAP
-```find ../../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+```find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-fi ../{}.fa \
 -bed CAP_sorted.bed \
 -fo {}_CAP.fa```
 
-```find ../../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
+## WINDOWS
+```find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
--fi ../../../seashell/bu-serine-wd/19-01-08/{}.fa \
--bed CAP_sorted.bed \
--fo {}_CAP.fa```
+-fi ../{}.fa \
+-bed GCF_002022765.2_C_virginica.3.0_genomic.1kb_window_500bp_step.gff3 \
+-fo {}_1kb_window_500bp_step.fa```
 
-GENE, CDS, EXONS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
+GENE files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/GENE_CpGoe
+CDS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CDS_CpGoe
+EXONS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/EXONS_CpGoe
 CAP files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CAP_CpGoe/
+WINDOWS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/WINDOWS_CpGoe/
 
 # Calculate CpG Observed / Expected Ratio 
 
