@@ -406,11 +406,10 @@ Bismark run complete
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R2.trimmed.fastq.gz
 Mapping = %
 
-
 #### WGBS
 * Set for non-directional
 * minimum alignment score function L,0,-0.6
-/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/WGBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/WG_BS_R2.trimmed.fastq.gz
+/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/WGBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/WGBS_R2.trimmed.fastq.gz
 Mapping = %
 
 
@@ -422,18 +421,23 @@ Mapping = %
 ```mkdir DeDup```
 ```cd Dedup```
 
-```nohup ~/programs/Bismark-0.18.2/deduplicate_bismark ~/Mcap_WGBS/Genome_Compare/Mapped/R1.trimmed_bismark_bt2_pe.bam >> nohup2.out&```
+ /home/shared/Bismark-0.19.1/deduplicate_bismark MBD_BS_R1.trimmed_bismark_bt2_pe.bam
+ * retained X%
+ 
+ /home/shared/Bismark-0.19.1/deduplicate_bismark WGBS_R1.trimmed_bismark_bt2_pe.bam
+ * retained X%
 
-* retained 98.76%
+
 
 ```cd ~/Mcap_WGBS/Genome_Compare```
 
 ## Calculate number of CpG in the genome
 
-```grep -v '>' ~/Mcap_WGBS/Mcap_Genome/20170313.mcap.falcon.errd.fasta | grep -o -i 'CG' | wc -l```
+zgrep -v '>' /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.fa.gz | grep -o -i 'CG' | wc -l
 
-* number of CG's in the assembled genome
-28,197,926
+* number of CG's in the assembled genome = 14,277,725
+
+# Extract Methylation
 
 ## Genome-Wide Extraction
 ```mkdir Extracted```
@@ -441,22 +445,14 @@ Mapping = %
 ```mkdir GWideExt```
 ```cd GWideExt```
 
-```nohup ~/programs/Bismark-0.18.2/bismark_methylation_extractor --gzip -p --ignore_r2 2 --scaffolds --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder ~/Mcap_WGBS/Mcap_Genome/ ~/Mcap_WGBS/Genome_Compare/DeDup/R1.trimmed_bismark_bt2_pe.deduplicated.sam >> nohup2.out&```
+ /home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME/ .sam 
 
 
-###Final Cytosine Methylation Report
-Item | Concatenated Sample | 
---- | --- | --- |
-Total number of C's analysed: |3,837,580,169 | 
-Total methylated C's in CpG context:  |91937387 |  
-Total methylated C's in CHG context:  | 9702693|  
-Total methylated C's in CHH context:  | 57764776|  
-Total C to T conversions in CpG context:      |538395499 |  
-Total C to T conversions in CHG context:      | 652173321| 
-Total C to T conversions in CHH context:      | 2487606493|  
-C methylated in CpG context:  | 14.6% |
-C methylated in CHG context:  | 1.5% |  
-C methylated in CHH context:  | 2.3% | 
+###Final Cytosine Methylation Report WGBS
+
+
+
+
 
 ### Genome wide C methylation
 R1.trimmed_bismark_bt2_pe.deduplicated.CpG_report.txt.gz
