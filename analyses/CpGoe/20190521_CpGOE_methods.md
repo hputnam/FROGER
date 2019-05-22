@@ -36,8 +36,20 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 -bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
 -fo {}_GENE.fa```
 
+```find ../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
+| xargs basename -s .fa | xargs -I{} bedtools getfasta \
+-fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
+-fo {}_GENE.fa```
+
 ## CDS
 ```find ../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+| xargs basename -s .fa | xargs -I{} bedtools getfasta \
+-fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
+-fo {}_CDS.fa```
+
+```find ../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
@@ -50,8 +62,20 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 -bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
 -fo {}_EXONS.fa```
 
+```find ../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
+| xargs basename -s .fa | xargs -I{} bedtools getfasta \
+-fi ../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
+-fo {}_EXONS.fa```
+
 ## CAP
 ```find ../../../seashell/bu-serine-wd/19-01-08/*_[0-9].fa \
+| xargs basename -s .fa | xargs -I{} bedtools getfasta \
+-fi ../../../seashell/bu-serine-wd/19-01-08/{}.fa \
+-bed CAP_sorted.bed \
+-fo {}_CAP.fa```
+
+```find ../../../seashell/bu-serine-wd/19-01-08/*_1[0-9].fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../../../seashell/bu-serine-wd/19-01-08/{}.fa \
 -bed CAP_sorted.bed \
