@@ -469,11 +469,15 @@ Bismark run complete
 ```mkdir DeDup```
 ```cd Dedup```
 
+ /home/shared/Bismark-0.19.1/deduplicate_bismark ~/FROGER/Mapped/WGBS/WGBS_R1.trimmed_bismark_bt2_pe.bam
+ * retained X%
+
+
+
  /home/shared/Bismark-0.19.1/deduplicate_bismark MBD_BS_R1.trimmed_bismark_bt2_pe.bam
  * retained X%
  
- /home/shared/Bismark-0.19.1/deduplicate_bismark WGBS_R1.trimmed_bismark_bt2_pe.bam
- * retained X%
+
 
 
 
@@ -493,12 +497,17 @@ zgrep -v '>' /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.f
 ```mkdir GWideExt```
 ```cd GWideExt```
 
- /home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/Mapped/RRBS/RRBS_R1.trimmed_bismark_bt2_pe.bam  
+#### RRBS
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/Mapped/RRBS/RRBS_R1.trimmed_bismark_bt2_pe.bam  
+###Final Cytosine Methylation Report RRBS
 
-
+#### WGBS
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/Mapped/WGBS/WGBS_R1.trimmed_bismark_bt2_pe.bam  
 ###Final Cytosine Methylation Report WGBS
 
-
+#### MBD_BS
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.bam  
+###Final Cytosine Methylation Report MBD_BS
 
 
 
