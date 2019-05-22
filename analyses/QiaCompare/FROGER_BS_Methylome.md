@@ -405,9 +405,49 @@ Bismark run complete
 * Set for non-directional
 * minimum alignment score function L,0,-0.6
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R2.trimmed.fastq.gz
-Mapping = %
+Mapping = 51% Unique and nonunique
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	5825769
+Number of paired-end alignments with a unique best hit:	2150765
+Mapping efficiency:	36.9%
+
+Sequence pairs with no alignments under any condition:	2842284
+Sequence pairs did not map uniquely:	832720
+Sequence pairs which were discarded because genomic sequence could not be extracted:	0
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	378828	((converted) top strand)
+GA/CT/CT:	692863	(complementary to (converted) top strand)
+GA/CT/GA:	699576	(complementary to (converted) bottom strand)
+CT/GA/GA:	379498	((converted) bottom strand)
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	57050785
+
+Total methylated C's in CpG context:	5873524
+Total methylated C's in CHG context:	117908
+Total methylated C's in CHH context:	348850
+Total methylated C's in Unknown context:	15586
+
+Total unmethylated C's in CpG context:	2189825
+Total unmethylated C's in CHG context:	12361400
+Total unmethylated C's in CHH context:	36159278
+Total unmethylated C's in Unknown context:	166066
+
+C methylated in CpG context:	72.8%
+C methylated in CHG context:	0.9%
+C methylated in CHH context:	1.0%
+C methylated in unknown context (CN or CHN):	8.6%
 
 
+Bismark completed in 0d 1h 8m 52s
+
+====================
+Bismark run complete
+====================
 
 
 
@@ -491,10 +531,29 @@ Total count of deduplicated leftover sequences: 553705 (99.45% of total)
 
 
  /home/shared/Bismark-0.19.1/deduplicate_bismark /home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.bam
- * retained X%
- 
+ * retained 99.78%
+ Now testing Bismark result file /home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.bam for positional sorting (which would be bad...)	...passed!
+Output file is: MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.sam
 
+skipping header line:	@HD	VN:1.0	SO:unsorted
+skipping header line:	@SQ	SN:NC_035780.1	LN:65668440
+skipping header line:	@SQ	SN:NC_035781.1	LN:61752955
+skipping header line:	@SQ	SN:NC_035782.1	LN:77061148
+skipping header line:	@SQ	SN:NC_035783.1	LN:59691872
+skipping header line:	@SQ	SN:NC_035784.1	LN:98698416
+skipping header line:	@SQ	SN:NC_035785.1	LN:51258098
+skipping header line:	@SQ	SN:NC_035786.1	LN:57830854
+skipping header line:	@SQ	SN:NC_035787.1	LN:75944018
+skipping header line:	@SQ	SN:NC_035788.1	LN:104168038
+skipping header line:	@SQ	SN:NC_035789.1	LN:32650045
+skipping header line:	@SQ	SN:NC_007175.2	LN:17244
+skipping header line:	@PG	ID:Bismark	VN:v0.19.1	CL:"bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R2.trimmed.fastq.gz"
 
+Total number of alignments analysed in /home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.bam:	2150765
+Total number duplicated alignments removed:	4669 (0.22%)
+Duplicated alignments were found at:	4562 different position(s)
+
+Total count of deduplicated leftover sequences: 2146096 (99.78% of total)
 
 
 ```cd ~/Mcap_WGBS/Genome_Compare```
@@ -515,15 +574,47 @@ zgrep -v '>' /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.f
 
 #### RRBS
 /home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/Mapped/RRBS/RRBS_R1.trimmed_bismark_bt2_pe.bam  
-###Final Cytosine Methylation Report RRBS
+#### Final Cytosine Methylation Report RRBS
+Parameters used to extract methylation information:
+Bismark Extractor Version: v0.19.1
+Bismark result file: paired-end (SAM format)
+Ignoring first 2 bp of Read 2
+Output specified: strand-specific (default)
+No overlapping methylation calls specified
+
+
+Processed 432650 lines in total
+Total number of methylation call strings processed: 865300
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:   9630322
+
+Total methylated C's in CpG context:    82924
+Total methylated C's in CHG context:    4473
+Total methylated C's in CHH context:    22759
+
+Total C to T conversions in CpG context:        1508725
+Total C to T conversions in CHG context:        1858481
+Total C to T conversions in CHH context:        6152960
+
+C methylated in CpG context:    5.2%
+C methylated in CHG context:    0.2%
+C methylated in CHH context:    0.4%
 
 #### WGBS
-/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/Mapped/WGBS/WGBS_R1.trimmed_bismark_bt2_pe.bam  
-###Final Cytosine Methylation Report WGBS
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/DeDup/WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.sam 
+### Final Cytosine Methylation Report WGBS
+
 
 #### MBD_BS
-/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.bam  
-###Final Cytosine Methylation Report MBD_BS
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME  /home/srlab/FROGER/DeDup/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.sam
+### Final Cytosine Methylation Report MBD_BS
+
+
+
+
+
 
 
 
