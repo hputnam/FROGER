@@ -104,51 +104,142 @@ Qiagen tech indicates we need to trim first 8 bases from all files. We can see t
 mkdir hardtrim
 cd hardtrim
 
-for file in '/FROGER/RAW/*.fastq.gz'
+for fastq in *R1*.fastq.gz
 do
-echo $file
-java -jar /home/shared/Trimmomatic-0.36/trimmomatic-0.36.jar PE -basein ~/FROGER/RAW/10_32_S32_L001_R1_001.fastq.gz HEADCROP:8  -baseout 10_32_S32_L001_R1_001.fastq.gz
-java -jar /home/shared/Trimmomatic-0.36/trimmomatic-0.36.jar PE -basein ~/FROGER/RAW/11_37_S37_L001_R1_001.fastq.gz HEADCROP:8  -baseout 11_37_S37_L001_R1_001.fastq.gz
+  old_suffix=_L001_R1_001.fastq.gz
+  output_suffix=_trimmed.fastq.gz
+  # Trim suffix from each file name using parameter substitution
+  name=${fastq%$old_suffix}
+  java -jar /home/shared/Trimmomatic-0.36/trimmomatic-0.36.jar \
+  PE \
+  -threads 15 \
+  -basein "${fastq}" \
+  HEADCROP:8 \
+  -baseout "${name}${output_suffix}"
+  mv *trimmed* /home/srlab/FROGER/RAW/hardtrim
+done
 
 
 
-12_38_S38_L001_R1_001.fastq.gz 
-13_33_S33_L001_R1_001.fastq.gz 
-14_34_S34_L001_R1_001.fastq.gz
-15_39_S39_L001_R1_001.fastq.gz
-16_40_S40_L001_R1_001.fastq.gz
-17_9_S9_L001_R1_001.fastq.gz
-18_10_S10_L001_R1_001.fastq.gz
-19_7_S7_L001_R1_001.fastq.gz
-1_25_S25_L001_R1_001.fastq.gz
-20_8_S8_L001_R1_001.fastq.gz
-2_26_S26_L001_R1_001.fastq.gz
-3_27_S27_L001_R1_001.fastq.gz
-4_28_S28_L001_R1_001.fastq.gz
-5_35_S35_L001_R1_001.fastq.gz
-6_36_S36_L001_R1_001.fastq.gz
-7_29_S29_L001_R1_001.fastq.gz
-8_30_S30_L001_R1_001.fastq.gz
-9_31_S31_L001_R1_001.fastq.gz
+## QC Trimmed Data 
+cd ..
+mkdir QC
+cd QC
+mkdir Trim_QC
 
+/home/shared/fastqc_0.11.7/fastqc /home/srlab/FROGER/RAW/hardtrim/*.fastq.gz -o ~/FROGER/QC/Trim_QC
 
+/home/srlab/.local/bin/multiqc .
 
+## Download and view QC data
+scp srlab@emu.fish.washington.edu:/home/srlab/FROGER/QC/Trim_QC/multiqc_report.html MyProjects/FROGER/
 
+The first 8 bases are gone. The majority of the files end in a T base
 
+## Count trimmed reads
+```zgrep -c "@M03" /home/srlab/FROGER/RAW/hardtrim/*.fastq.gz```
 
-
-
-
-
-
+/home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_1P.fastq.gz:574346
+/home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_2P.fastq.gz:574346
+/home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/11_37_S37_trimmed_1P.fastq.gz:695562
+/home/srlab/FROGER/RAW/hardtrim/11_37_S37_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/11_37_S37_trimmed_2P.fastq.gz:695562
+/home/srlab/FROGER/RAW/hardtrim/11_37_S37_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/12_38_S38_trimmed_1P.fastq.gz:865269
+/home/srlab/FROGER/RAW/hardtrim/12_38_S38_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/12_38_S38_trimmed_2P.fastq.gz:865269
+/home/srlab/FROGER/RAW/hardtrim/12_38_S38_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/1_25_S25_trimmed_1P.fastq.gz:488137
+/home/srlab/FROGER/RAW/hardtrim/1_25_S25_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/1_25_S25_trimmed_2P.fastq.gz:488137
+/home/srlab/FROGER/RAW/hardtrim/1_25_S25_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/13_33_S33_trimmed_1P.fastq.gz:645468
+/home/srlab/FROGER/RAW/hardtrim/13_33_S33_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/13_33_S33_trimmed_2P.fastq.gz:645468
+/home/srlab/FROGER/RAW/hardtrim/13_33_S33_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/14_34_S34_trimmed_1P.fastq.gz:691626
+/home/srlab/FROGER/RAW/hardtrim/14_34_S34_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/14_34_S34_trimmed_2P.fastq.gz:691626
+/home/srlab/FROGER/RAW/hardtrim/14_34_S34_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/15_39_S39_trimmed_1P.fastq.gz:671325
+/home/srlab/FROGER/RAW/hardtrim/15_39_S39_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/15_39_S39_trimmed_2P.fastq.gz:671325
+/home/srlab/FROGER/RAW/hardtrim/15_39_S39_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/16_40_S40_trimmed_1P.fastq.gz:771805
+/home/srlab/FROGER/RAW/hardtrim/16_40_S40_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/16_40_S40_trimmed_2P.fastq.gz:771805
+/home/srlab/FROGER/RAW/hardtrim/16_40_S40_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/17_9_S9_trimmed_1P.fastq.gz:403861
+/home/srlab/FROGER/RAW/hardtrim/17_9_S9_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/17_9_S9_trimmed_2P.fastq.gz:403861
+/home/srlab/FROGER/RAW/hardtrim/17_9_S9_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/18_10_S10_trimmed_1P.fastq.gz:525421
+/home/srlab/FROGER/RAW/hardtrim/18_10_S10_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/18_10_S10_trimmed_2P.fastq.gz:525421
+/home/srlab/FROGER/RAW/hardtrim/18_10_S10_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/19_7_S7_trimmed_1P.fastq.gz:371667
+/home/srlab/FROGER/RAW/hardtrim/19_7_S7_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/19_7_S7_trimmed_2P.fastq.gz:371667
+/home/srlab/FROGER/RAW/hardtrim/19_7_S7_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/20_8_S8_trimmed_1P.fastq.gz:314922
+/home/srlab/FROGER/RAW/hardtrim/20_8_S8_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/20_8_S8_trimmed_2P.fastq.gz:314922
+/home/srlab/FROGER/RAW/hardtrim/20_8_S8_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/2_26_S26_trimmed_1P.fastq.gz:168954
+/home/srlab/FROGER/RAW/hardtrim/2_26_S26_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/2_26_S26_trimmed_2P.fastq.gz:168954
+/home/srlab/FROGER/RAW/hardtrim/2_26_S26_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/3_27_S27_trimmed_1P.fastq.gz:231652
+/home/srlab/FROGER/RAW/hardtrim/3_27_S27_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/3_27_S27_trimmed_2P.fastq.gz:231652
+/home/srlab/FROGER/RAW/hardtrim/3_27_S27_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/4_28_S28_trimmed_1P.fastq.gz:279065
+/home/srlab/FROGER/RAW/hardtrim/4_28_S28_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/4_28_S28_trimmed_2P.fastq.gz:279065
+/home/srlab/FROGER/RAW/hardtrim/4_28_S28_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/5_35_S35_trimmed_1P.fastq.gz:21862
+/home/srlab/FROGER/RAW/hardtrim/5_35_S35_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/5_35_S35_trimmed_2P.fastq.gz:21862
+/home/srlab/FROGER/RAW/hardtrim/5_35_S35_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/6_36_S36_trimmed_1P.fastq.gz:31352
+/home/srlab/FROGER/RAW/hardtrim/6_36_S36_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/6_36_S36_trimmed_2P.fastq.gz:31352
+/home/srlab/FROGER/RAW/hardtrim/6_36_S36_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/7_29_S29_trimmed_1P.fastq.gz:612994
+/home/srlab/FROGER/RAW/hardtrim/7_29_S29_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/7_29_S29_trimmed_2P.fastq.gz:612994
+/home/srlab/FROGER/RAW/hardtrim/7_29_S29_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/8_30_S30_trimmed_1P.fastq.gz:665233
+/home/srlab/FROGER/RAW/hardtrim/8_30_S30_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/8_30_S30_trimmed_2P.fastq.gz:665233
+/home/srlab/FROGER/RAW/hardtrim/8_30_S30_trimmed_2U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_1P.fastq.gz:595446
+/home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_1U.fastq.gz:0
+/home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_2P.fastq.gz:595446
+/home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_2U.fastq.gz:0
 
 
 ## Pool Samples to run combined
-concatenate all Read 1 and all Read 2 for a generic methylome of both samples to determine mapping and coverage
+concatenate all Read 1 and all Read 2 for three sample types to determine mapping and coverage
 
-```cat ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz ~/Mcap_WGBS/Genome_Compare/Trimmed/W19_R1.trimmed.fastq.gz > R1.trimmed.fastq.gz```
+cat 1_25_S25_trimmed_1P.fastq.gz 2_26_S26_trimmed_1P.fastq.gz 3_27_S27_trimmed_1P.fastq.gz 4_28_S28_trimmed_1P.fastq.gz 5_35_S35_trimmed_1P.fastq.gz 6_36_S36_trimmed_1P.fastq.gz 17_9_S9_trimmed_1P.fastq.gz 18_10_S10_trimmed_1P.fastq.gz 19_7_S7_trimmed_1P.fastq.gz  > WGBS_R1.trimmed.fastq.gz
+cat  1_25_S25_trimmed_2P.fastq.gz 2_26_S26_trimmed_2P.fastq.gz 3_27_S27_trimmed_2P.fastq.gz 4_28_S28_trimmed_2P.fastq.gz 5_35_S35_trimmed_2P.fastq.gz 6_36_S36_trimmed_2P.fastq.gz 17_9_S9_trimmed_2P.fastq.gz 18_10_S10_trimmed_2P.fastq.gz 19_7_S7_trimmed_2P.fastq.gz  > WGBS_R2.trimmed.fastq.gz
 
-```cat ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz ~/Mcap_WGBS/Genome_Compare/Trimmed/W19_R2.trimmed.fastq.gz > R2.trimmed.fastq.gz```
+zgrep -c "@M03" /home/srlab/FROGER/RAW/hardtrim/WGBS_R*.trimmed.fastq.gz
+
+cat 9_31_S31_trimmed_1P.fastq.gz 10_32_S32_trimmed_1P.fastq.gz 11_37_S37_trimmed_1P.fastq.gz 12_38_S38_trimmed_1P.fastq.gz 13_33_S33_trimmed_1P.fastq.gz 14_34_S34_trimmed_1P.fastq.gz 15_39_S39_trimmed_1P.fastq.gz 16_40_S40_trimmed_1P.fastq.gz 20_8_S8_trimmed_1P.fastq.gz  > MBD_BS_R1.trimmed.fastq.gz
+cat 9_31_S31_trimmed_2P.fastq.gz 10_32_S32_trimmed_2P.fastq.gz 11_37_S37_trimmed_2P.fastq.gz 12_38_S38_trimmed_2P.fastq.gz 13_33_S33_trimmed_2P.fastq.gz 14_34_S34_trimmed_2P.fastq.gz 15_39_S39_trimmed_2P.fastq.gz 16_40_S40_trimmed_2P.fastq.gz 20_8_S8_trimmed_2P.fastq.gz  > MBD_BS_R2.trimmed.fastq.gz
+
+zgrep -c "@M03" /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R*.trimmed.fastq.gz
+
+cat  7_29_S29_trimmed_1P.fastq.gz 8_30_S30_trimmed_1P.fastq.gz > RRBS_R1.trimmed.fastq.gz
+cat  7_29_S29_trimmed_2P.fastq.gz 8_30_S30_trimmed_2P.fastq.gz  > RRBS_R2.trimmed.fastq.gz
+
+zgrep -c "@M03" /home/srlab/FROGER/RAW/hardtrim/RRBS_R*.trimmed.fastq.gz
+
+
  
 ## Map data to converted genome
 
@@ -157,9 +248,11 @@ concatenate all Read 1 and all Read 2 for a generic methylome of both samples to
 
 ### Optimizing Mapping
 Option 0
-```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz``` 
 
-W5 = 27.4%
+#### RRBS
+/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
+
+Mapping = X%
 
 Option 1
 ```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.6 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz -p 12 --bam```
