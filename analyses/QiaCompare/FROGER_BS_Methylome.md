@@ -350,6 +350,8 @@ Bismark run complete
 ====================
 
 
+#### RRBS
+
 * Set for non-directional
 * minimum alignment score function L,0,-0.6
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
@@ -406,11 +408,57 @@ Bismark run complete
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R2.trimmed.fastq.gz
 Mapping = %
 
+
+
+
+
 #### WGBS
 * Set for non-directional
 * minimum alignment score function L,0,-0.6
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/WGBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/WGBS_R2.trimmed.fastq.gz
-Mapping = %
+Mapping = 32% 55% Unique and nonunique
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	2521971
+Number of paired-end alignments with a unique best hit:	556745
+Mapping efficiency:	22.1%
+
+Sequence pairs with no alignments under any condition:	1724025
+Sequence pairs did not map uniquely:	241201
+Sequence pairs which were discarded because genomic sequence could not be extracted:	1
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	88391	((converted) top strand)
+GA/CT/CT:	190716	(complementary to (converted) top strand)
+GA/CT/GA:	189817	(complementary to (converted) bottom strand)
+CT/GA/GA:	87820	((converted) bottom strand)
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	13373659
+
+Total methylated C's in CpG context:	160803
+Total methylated C's in CHG context:	10421
+Total methylated C's in CHH context:	138299
+Total methylated C's in Unknown context:	4274
+
+Total unmethylated C's in CpG context:	1684015
+Total unmethylated C's in CHG context:	2512869
+Total unmethylated C's in CHH context:	8867252
+Total unmethylated C's in Unknown context:	42657
+
+C methylated in CpG context:	8.7%
+C methylated in CHG context:	0.4%
+C methylated in CHH context:	1.5%
+C methylated in unknown context (CN or CHN):	9.1%
+
+
+Bismark completed in 0d 0h 21m 16s
+
+====================
+Bismark run complete
+====================
 
 
 # STOP HERE
@@ -445,7 +493,7 @@ zgrep -v '>' /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.f
 ```mkdir GWideExt```
 ```cd GWideExt```
 
- /home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME/ .sam 
+ /home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/Mapped/RRBS/RRBS_R1.trimmed_bismark_bt2_pe.bam  
 
 
 ###Final Cytosine Methylation Report WGBS
