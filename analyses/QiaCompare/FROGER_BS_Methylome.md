@@ -560,6 +560,8 @@ Total count of deduplicated leftover sequences: 2146096 (99.78% of total)
 
 ## Calculate number of CpG in the genome
 
+while read line;do if [ “${line:0:1}” == “>” ]; then echo -e “\n”$line; else echo $line | tr -d ‘\n’ ; fi; done < /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.fa.gz > output.fasta
+
 zgrep -v '>' /home/srlab/FROGER/GENOME/GCF_002022765.2_C_virginica-3.0_genomic.fa.gz | grep -o -i 'CG' | wc -l
 
 * number of CG's in the assembled genome = 14,277,725
@@ -667,6 +669,8 @@ C methylated in CHH context:    0.9%
 # STOP HERE
 
 ### Genome wide C methylation
+
+
 
 
 ```zcat WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.CpG_report.txt.gz > All.WGBS_CpG_report.txt```
