@@ -254,38 +254,170 @@ Option 0
 * Standard alignments use the default minimum alignment score function L,0,-0.2,
 * Also assumes directional
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
-Mapping = 8.6%
+Mapping = 15% Unique and nonunique
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	1278227
+Number of paired-end alignments with a unique best hit:	109796
+Mapping efficiency:	8.6%
+
+Sequence pairs with no alignments under any condition:	1081959
+Sequence pairs did not map uniquely:	86472
+Sequence pairs which were discarded because genomic sequence could not be extracted:	0
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	55408	((converted) top strand)
+GA/CT/CT:	0	(complementary to (converted) top strand)
+GA/CT/GA:	0	(complementary to (converted) bottom strand)
+CT/GA/GA:	54388	((converted) bottom strand)
+
+Number of alignments to (merely theoretical) complementary strands being rejected in total:	0
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	2887142
+
+Total methylated C's in CpG context:	28512
+Total methylated C's in CHG context:	1064
+Total methylated C's in CHH context:	5019
+Total methylated C's in Unknown context:	13
+
+Total unmethylated C's in CpG context:	465032
+Total unmethylated C's in CHG context:	569818
+Total unmethylated C's in CHH context:	1817697
+Total unmethylated C's in Unknown context:	1294
+
+C methylated in CpG context:	5.8%
+C methylated in CHG context:	0.2%
+C methylated in CHH context:	0.3%
+C methylated in unknown context (CN or CHN):	1.0%
+
+
+Bismark completed in 0d 0h 9m 11s
+
+====================
+Bismark run complete
+====================
+
 
 ##### Alternate parameters for non-directional
 * Set for non-directional
 * minimum alignment score function L,0,-0.2
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
-Mapping = 21.3%
+Mapping = 38% Unique and nonunique
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	1278227
+Number of paired-end alignments with a unique best hit:	271749
+Mapping efficiency:	21.3%
+
+Sequence pairs with no alignments under any condition:	793932
+Sequence pairs did not map uniquely:	212546
+Sequence pairs which were discarded because genomic sequence could not be extracted:	0
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	55379	((converted) top strand)
+GA/CT/CT:	81466	(complementary to (converted) top strand)
+GA/CT/GA:	80537	(complementary to (converted) bottom strand)
+CT/GA/GA:	54367	((converted) bottom strand)
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	7148861
+
+Total methylated C's in CpG context:	70865
+Total methylated C's in CHG context:	2857
+Total methylated C's in CHH context:	10298
+Total methylated C's in Unknown context:	43
+
+Total unmethylated C's in CpG context:	1134133
+Total unmethylated C's in CHG context:	1394961
+Total unmethylated C's in CHH context:	4535747
+Total unmethylated C's in Unknown context:	3131
+
+C methylated in CpG context:	5.9%
+C methylated in CHG context:	0.2%
+C methylated in CHH context:	0.2%
+C methylated in unknown context (CN or CHN):	1.4%
+
+
+Bismark completed in 0d 0h 10m 46s
+
+====================
+Bismark run complete
+====================
+
 
 * Set for non-directional
 * minimum alignment score function L,0,-0.6
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
+Mapping = 55% Unique and nonunique
+
+Final Alignment report
+======================
+Sequence pairs analysed in total:	1278227
+Number of paired-end alignments with a unique best hit:	432651
+Mapping efficiency:	33.8%
+
+Sequence pairs with no alignments under any condition:	569112
+Sequence pairs did not map uniquely:	276464
+Sequence pairs which were discarded because genomic sequence could not be extracted:	1
+
+Number of sequence pairs with unique best (first) alignment came from the bowtie output:
+CT/GA/CT:	87893	((converted) top strand)
+GA/CT/CT:	129491	(complementary to (converted) top strand)
+GA/CT/GA:	128599	(complementary to (converted) bottom strand)
+CT/GA/GA:	86667	((converted) bottom strand)
+
+Final Cytosine Methylation Report
+=================================
+Total number of C's analysed:	11236128
+
+Total methylated C's in CpG context:	100695
+Total methylated C's in CHG context:	5542
+Total methylated C's in CHH context:	30527
+Total methylated C's in Unknown context:	1148
+
+Total unmethylated C's in CpG context:	1775468
+Total unmethylated C's in CHG context:	2189159
+Total unmethylated C's in CHH context:	7134737
+Total unmethylated C's in Unknown context:	34892
+
+C methylated in CpG context:	5.4%
+C methylated in CHG context:	0.3%
+C methylated in CHH context:	0.4%
+C methylated in unknown context (CN or CHN):	3.2%
+
+
+Bismark completed in 0d 0h 13m 5s
+
+====================
+Bismark run complete
+====================
+
+
+## Use these parameters --non_directional --score_min L,0,-0.6 
+
+#### MBD_BS
+* Set for non-directional
+* minimum alignment score function L,0,-0.6
+/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/MBD_BS_R2.trimmed.fastq.gz
 Mapping = %
 
 
+#### WGBS
+* Set for non-directional
+* minimum alignment score function L,0,-0.6
+/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/WGBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/WG_BS_R2.trimmed.fastq.gz
+Mapping = %
 
 
 # STOP HERE
 
-```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.9 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz -p 12 --bam```
 
-65.9 % mapping
-
-#### moved forward with mapping option 1
-
-#### Concatenated Sample Mapping
-```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.6 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/R2.trimmed.fastq.gz -p 12 --bam```
-
-* mapping = 63.2%
-
-
-
-## Deduplicate Data
+## Deduplicate Data for MBD and WGBS
 
 ```mkdir DeDup```
 ```cd Dedup```
