@@ -250,16 +250,26 @@ zgrep -c "@M03" /home/srlab/FROGER/RAW/hardtrim/RRBS_R*.trimmed.fastq.gz
 Option 0
 
 #### RRBS
+##### Default parameters
+* Standard alignments use the default minimum alignment score function L,0,-0.2,
+* Also assumes directional
 /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
+Mapping = 8.6%
 
-Mapping = X%
+##### Alternate parameters for non-directional
+* Set for non-directional
+* minimum alignment score function L,0,-0.2
+/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
+Mapping = %
 
-Option 1
-```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.6 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz -p 12 --bam```
+* Set for non-directional
+* minimum alignment score function L,0,-0.6
+/home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 /home/srlab/FROGER/RAW/hardtrim/RRBS_R1.trimmed.fastq.gz -2 /home/srlab/FROGER/RAW/hardtrim/RRBS_R2.trimmed.fastq.gz
+Mapping = %
 
-* W5 = 62.8% mapping
 
-Option 2
+
+
 ```nohup ~/programs/Bismark-0.18.2/bismark --genome ~/Mcap_WGBS/Mcap_Genome/ --bowtie2 --score_min L,0,-0.9 -1 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R1.trimmed.fastq.gz -2 ~/Mcap_WGBS/Genome_Compare/Trimmed/W5_R2.trimmed.fastq.gz -p 12 --bam```
 
 65.9 % mapping
