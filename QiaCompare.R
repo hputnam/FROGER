@@ -5,7 +5,7 @@ file.list <- list("/home/srlab/FROGER/Extracted/RRBS_extr/RRBS_R1.trimmed_bismar
                   "/home/srlab/FROGER/Extracted/MBD_BS_extr/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt") 
 myobj<-read( file.list,pipeline=list(fraction=TRUE,chr.col=2,start.col=3,end.col=3,
                                      coverage.col=5,strand.col=4,freqC.col=6 ),
-             sample.id=list("RRBS", "WGBS", "MBD"),assembly="French",
+             sample.id=list("RRBS", "WGBS", "MBD"),assembly="Cvir",
              treatment=c(0,1,1))
 
 ############QC##############
@@ -34,7 +34,7 @@ RvW_file.list <- list("/home/srlab/FROGER/Extracted/RRBS_extr/RRBS_R1.trimmed_bi
                       "/home/srlab/FROGER/Extracted/WGBS_extr/WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt") 
 RvW_myobj<-read( RvW_file.list,pipeline=list(fraction=TRUE,chr.col=2,start.col=3,end.col=3,
                                              coverage.col=5,strand.col=4,freqC.col=6 ),
-                 sample.id=list("RRBS", "WGBS"),assembly="French",
+                 sample.id=list("RRBS", "WGBS"),assembly="Cvir",
                  treatment=c(0,1))
 
 #################FILTERING###########################
@@ -53,7 +53,7 @@ RvM_file.list <- list("/home/srlab/FROGER/Extracted/RRBS_extr/RRBS_R1.trimmed_bi
                   "/home/srlab/FROGER/Extracted/MBD_BS_extr/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt") 
 RvM_myobj<-read( RvM_file.list,pipeline=list(fraction=TRUE,chr.col=2,start.col=3,end.col=3,
                                      coverage.col=5,strand.col=4,freqC.col=6 ),
-             sample.id=list("RRBS", "MBD"),assembly="French",
+             sample.id=list("RRBS", "MBD"),assembly="Cvir",
              treatment=c(0,1))
 
 #################FILTERING###########################
@@ -85,4 +85,6 @@ head(WvM_meth)
 jpeg("~/GitHub/FROGER_methylKit/analyses/QiaCompare/WvM_correlationplot.jpg", width = 1000, height = 600)
 getCorrelation(WvM_meth,plot=TRUE)
 dev.off()
-
+jpeg("~/GitHub/FROGER_methylKit/analyses/QiaCompare/correlationplot.jpg", width = 4000, height = 3000)
+getCorrelation(meth,plot=TRUE)
+dev.off()
