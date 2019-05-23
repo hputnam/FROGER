@@ -18,8 +18,11 @@ __EasternOysterGenome/Population Structure/Large_outputs/envi_assoc_CpG
 2) We used lfmm_ridge to calculate the association between CpGO/E and the available environmental variables (based on Kevin's code). 
 We also calculated Spearman's rho.
 
-The code is here:
-ALAN WILL ADD
+Code is located in the OysterGenomeProject repository here:
+- https://github.com/jpuritz/OysterGenomeProject/tree/master/popstructureOutliers/src/8cpgoe_enviAssoc
+
 
 And the outputs are here:
-ALAN WILL ADD
+- [Figures](https://github.com/jpuritz/OysterGenomeProject/tree/master/popstructureOutliers/figures/7cpgoe_enviAssoc)
+- [Significance and rho tables for individual environmental variables, and complete .rds file for all associations](https://github.com/jpuritz/OysterGenomeProject/tree/master/popstructureOutliers/data/cpgoe_enviAssoc_results) 
+- Google drive for large outputs: __EasternOysterGenome/Population Structure/Large_outputs/envi_assoc_CpG
