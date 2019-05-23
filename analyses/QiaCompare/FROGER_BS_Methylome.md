@@ -42,46 +42,48 @@ requires bowtie2, samtools, perl, trimmomatic
 
 ```zgrep -c "@M03" *.fastq.gz```
 
-10_32_S32_L001_R1_001.fastq.gz:574346
-10_32_S32_L001_R2_001.fastq.gz:574346
-11_37_S37_L001_R1_001.fastq.gz:695562
-11_37_S37_L001_R2_001.fastq.gz:695562
-12_38_S38_L001_R1_001.fastq.gz:865269
-12_38_S38_L001_R2_001.fastq.gz:865269
-1_25_S25_L001_R1_001.fastq.gz:488137
-1_25_S25_L001_R2_001.fastq.gz:488137
-13_33_S33_L001_R1_001.fastq.gz:645468
-13_33_S33_L001_R2_001.fastq.gz:645468
-14_34_S34_L001_R1_001.fastq.gz:691626
-14_34_S34_L001_R2_001.fastq.gz:691626
-15_39_S39_L001_R1_001.fastq.gz:671325
-15_39_S39_L001_R2_001.fastq.gz:671325
-16_40_S40_L001_R1_001.fastq.gz:771805
-16_40_S40_L001_R2_001.fastq.gz:771805
-17_9_S9_L001_R1_001.fastq.gz:403861
-17_9_S9_L001_R2_001.fastq.gz:403861
-18_10_S10_L001_R1_001.fastq.gz:525421
-18_10_S10_L001_R2_001.fastq.gz:525421
-19_7_S7_L001_R1_001.fastq.gz:371667
-19_7_S7_L001_R2_001.fastq.gz:371667
-20_8_S8_L001_R1_001.fastq.gz:314922
-20_8_S8_L001_R2_001.fastq.gz:314922
-2_26_S26_L001_R1_001.fastq.gz:168954
-2_26_S26_L001_R2_001.fastq.gz:168954
-3_27_S27_L001_R1_001.fastq.gz:231652
-3_27_S27_L001_R2_001.fastq.gz:231652
-4_28_S28_L001_R1_001.fastq.gz:279065
-4_28_S28_L001_R2_001.fastq.gz:279065
-5_35_S35_L001_R1_001.fastq.gz:21862
-5_35_S35_L001_R2_001.fastq.gz:21862
-6_36_S36_L001_R1_001.fastq.gz:31352
-6_36_S36_L001_R2_001.fastq.gz:31352
-7_29_S29_L001_R1_001.fastq.gz:612994
-7_29_S29_L001_R2_001.fastq.gz:612994
-8_30_S30_L001_R1_001.fastq.gz:665233
-8_30_S30_L001_R2_001.fastq.gz:665233
-9_31_S31_L001_R1_001.fastq.gz:595446
-9_31_S31_L001_R2_001.fastq.gz:595446
+```
+10_32_S32_L001_R1_001.fastq.gz:574346  
+10_32_S32_L001_R2_001.fastq.gz:574346  
+11_37_S37_L001_R1_001.fastq.gz:695562  
+11_37_S37_L001_R2_001.fastq.gz:695562  
+12_38_S38_L001_R1_001.fastq.gz:865269  
+12_38_S38_L001_R2_001.fastq.gz:865269  
+1_25_S25_L001_R1_001.fastq.gz:488137  
+1_25_S25_L001_R2_001.fastq.gz:488137  
+13_33_S33_L001_R1_001.fastq.gz:645468  
+13_33_S33_L001_R2_001.fastq.gz:645468  
+14_34_S34_L001_R1_001.fastq.gz:691626  
+14_34_S34_L001_R2_001.fastq.gz:691626  
+15_39_S39_L001_R1_001.fastq.gz:671325  
+15_39_S39_L001_R2_001.fastq.gz:671325  
+16_40_S40_L001_R1_001.fastq.gz:771805  
+16_40_S40_L001_R2_001.fastq.gz:771805  
+17_9_S9_L001_R1_001.fastq.gz:403861  
+17_9_S9_L001_R2_001.fastq.gz:403861  
+18_10_S10_L001_R1_001.fastq.gz:525421  
+18_10_S10_L001_R2_001.fastq.gz:525421  
+19_7_S7_L001_R1_001.fastq.gz:371667  
+19_7_S7_L001_R2_001.fastq.gz:371667    
+20_8_S8_L001_R1_001.fastq.gz:314922    
+20_8_S8_L001_R2_001.fastq.gz:314922    
+2_26_S26_L001_R1_001.fastq.gz:168954  
+2_26_S26_L001_R2_001.fastq.gz:168954  
+3_27_S27_L001_R1_001.fastq.gz:231652  
+3_27_S27_L001_R2_001.fastq.gz:231652  
+4_28_S28_L001_R1_001.fastq.gz:279065  
+4_28_S28_L001_R2_001.fastq.gz:279065  
+5_35_S35_L001_R1_001.fastq.gz:21862  
+5_35_S35_L001_R2_001.fastq.gz:21862  
+6_36_S36_L001_R1_001.fastq.gz:31352  
+6_36_S36_L001_R2_001.fastq.gz:31352  
+7_29_S29_L001_R1_001.fastq.gz:612994  
+7_29_S29_L001_R2_001.fastq.gz:612994  
+8_30_S30_L001_R1_001.fastq.gz:665233  
+8_30_S30_L001_R2_001.fastq.gz:665233  
+9_31_S31_L001_R1_001.fastq.gz:595446  
+9_31_S31_L001_R2_001.fastq.gz:595446  
+```
 
 ## QC Raw Data 
 ``cd ..``  
@@ -142,6 +144,7 @@ done
 ## Count trimmed reads
 ```zgrep -c "@M03" /home/srlab/FROGER/RAW/hardtrim/*.fastq.gz```
 
+```
 /home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_1P.fastq.gz:574346
 /home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_1U.fastq.gz:0
 /home/srlab/FROGER/RAW/hardtrim/10_32_S32_trimmed_2P.fastq.gz:574346
@@ -222,7 +225,7 @@ done
 /home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_1U.fastq.gz:0
 /home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_2P.fastq.gz:595446
 /home/srlab/FROGER/RAW/hardtrim/9_31_S31_trimmed_2U.fastq.gz:0
-
+```
 
 ## Pool Samples to run combined
 * concatenate all Read 1 and all Read 2 for three sample types to determine mapping and coverage
@@ -252,7 +255,7 @@ cat  7_29_S29_trimmed_2P.fastq.gz 8_30_S30_trimmed_2P.fastq.gz  > RRBS_R2.trimme
  
 ## Map data to converted genome
 
-```mkdir Mapped```
+```mkdir Mapped```  
 ```cd Mapped```
 
 ### Optimizing Mapping
@@ -596,6 +599,11 @@ C methylated in CpG context:    72.8%
 C methylated in CHG context:    0.9%
 C methylated in CHH context:    0.9%
 ```
+
+# Prep for MethylKit
+perl script from Mac here
+
+
 
 
 # STOP HERE
