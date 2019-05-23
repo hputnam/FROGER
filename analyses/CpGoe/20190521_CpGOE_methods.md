@@ -120,16 +120,16 @@ do
   > ${fn}_tab
   
   # Print only sequences to new file
-  gawk '{ print $2 }' ${fn}_tab > ${fn}_tab2
+  awk '{ print $2 }' ${fn}_tab > ${fn}_tab2
   
   # Delimit sequences on CGs and print the number of fields minus 1 to get the number of CGs present.
-  gawk -F\[Cc][Gg] '{print NF-1}' ${fn}_tab2 > CG
+  awk -F\[Cc][Gg] '{print NF-1}' ${fn}_tab2 > CG
   
   # Delimit sequences on CGs and print the number of fields minus 1 to get the number of Cs present.
-  gawk -F\[Cc] '{print NF-1}' ${fn}_tab2 > C
+  awk -F\[Cc] '{print NF-1}' ${fn}_tab2 > C
   
   # Delimit sequences on CGs and print the number of fields minus 1 to get the number of Gs present.
-  gawk -F\[Gg] '{print NF-1}' ${fn}_tab2 > G
+  awk -F\[Gg] '{print NF-1}' ${fn}_tab2 > G
   
   # Paste these together to have file with the following fields:
     # - FastA header
@@ -145,7 +145,7 @@ do
   > comb
   
   # Do some math to calculate CpG O/E ratio (observed vs expected)
-  gawk '{print $1, "\t", (($4)/($5*$6))*(($3^2)/($3-1))}' comb \
+  awk '{print $1, "\t", (($4)/($5*$6))*(($3^2)/($3-1))}' comb \
   > ID_CpG
 done
 ```
