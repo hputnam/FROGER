@@ -659,7 +659,18 @@ awk -f meth_coverage.awk MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_m
 find *.gz | xargs basename -s _trimmed_1P.fastq.gz | xargs -I{} /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 {}_trimmed_1P.fastq.gz -2 {}_trimmed_2P.fastq.gz -o bismarkout_individual/'
 ```
 
+Multiqc of Bismarck mapping for individual and combined libraries
 
+```
+srlab@emu:~/FROGER/RAW/hardtrim/bismarkout_individual$ /home/srlab/.local/bin/multiqc .
+```
+
+
+```
+srlab@emu:~/FROGER/Mapped$ /home/srlab/.local/bin/multiqc .
+```
+
+These multiQC files can be found in 'analyses'
 
 # STOP HERE
 
