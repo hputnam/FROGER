@@ -1,0 +1,53 @@
+[2019-05-24 10:08:11,910] multiqc                                            [DEBUG  ]  No MultiQC config found: /home/srlab/.local/lib/python2.7/site-packages/multiqc_config.yaml
+[2019-05-24 10:08:11,910] multiqc                                            [DEBUG  ]  No MultiQC config found: /home/srlab/.multiqc_config.yaml
+[2019-05-24 10:08:11,910] multiqc                                            [DEBUG  ]  No MultiQC config found: multiqc_config.yaml
+[2019-05-24 10:08:11,910] multiqc                                            [DEBUG  ]  Command used: /home/srlab/.local/bin/multiqc .
+[2019-05-24 10:08:11,910] multiqc                                            [DEBUG  ]  Could not connect to multiqc.info for version check
+[2019-05-24 10:08:11,910] multiqc                                            [INFO   ]  This is MultiQC v0.9
+[2019-05-24 10:08:11,910] multiqc                                            [DEBUG  ]  Command     : /home/srlab/.local/bin/multiqc .
+[2019-05-24 10:08:11,911] multiqc                                            [DEBUG  ]  Working dir : /home/srlab/FROGER/Mapped
+[2019-05-24 10:08:11,911] multiqc                                            [INFO   ]  Template    : default
+[2019-05-24 10:08:11,911] multiqc                                            [INFO   ]  Searching '.'
+[2019-05-24 10:08:11,911] multiqc                                            [DEBUG  ]  Analysing modules: gatk, htseq, custom_content, peddy, quast, snpeff, qualimap, bcftools, featureCounts, methylQA, rseqc, picard, preseq, prokka, samblaster, samtools, bamtools, bismark, hicup, salmon, kallisto, slamdunk, star, tophat, bowtie2, bowtie1, cutadapt, trimmomatic, skewer, fastq_screen, fastqc
+[2019-05-24 10:08:11,911] multiqc                                            [DEBUG  ]  Using temporary directory for creating report: /tmp/tmpWYmMIZ
+[2019-05-24 10:08:11,915] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: WGBS_R1.trimmed_bismark_bt2_pe.bam
+[2019-05-24 10:08:11,918] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: RRBS_R1.trimmed_bismark_bt2_pe.bam
+[2019-05-24 10:08:11,918] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: MBD_BS_R1.trimmed_bismark_bt2_pe.bam
+[2019-05-24 10:08:11,921] multiqc.modules.gatk.gatk                          [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,924] multiqc.modules.htseq.htseq                        [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,928] multiqc.modules.custom_content.custom_content      [DEBUG  ]  No custom content found
+[2019-05-24 10:08:11,932] multiqc.modules.peddy.peddy                        [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,935] multiqc.modules.quast.quast                        [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,938] multiqc.modules.snpeff.snpeff                      [DEBUG  ]  Could not find any data in ('.',)
+[2019-05-24 10:08:11,941] multiqc.modules.qualimap.QM_BamQC                  [DEBUG  ]  Using default Qualimap thresholds: 1, 5, 10, 30, 50
+[2019-05-24 10:08:11,944] multiqc.modules.qualimap.qualimap                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,947] multiqc.modules.bcftools.bcftools                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,949] multiqc.modules.featureCounts.feature_counts       [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,952] multiqc.modules.methylQA.methylQA                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,960] multiqc.modules.rseqc.rseqc                        [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,968] multiqc.modules.picard.picard                      [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,971] multiqc.modules.preseq.preseq                      [DEBUG  ]  Could not find any preseq data in ('.',)
+[2019-05-24 10:08:11,974] multiqc.modules.prokka.prokka                      [DEBUG  ]  Could not find any Prokka data in ('.',)
+[2019-05-24 10:08:11,977] multiqc.modules.samblaster.samblaster              [DEBUG  ]  Could not find any data in ('.',)
+[2019-05-24 10:08:11,982] multiqc.modules.samtools.samtools                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,985] multiqc.modules.bamtools.bamtools                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:11,996] multiqc.modules.bismark.bismark                    [INFO   ]  Found 3 bismark alignment reports
+[2019-05-24 10:08:11,999] multiqc.modules.hicup.hicup                        [DEBUG  ]  Could not find any HiCUP data in ('.',)
+[2019-05-24 10:08:12,003] multiqc.modules.salmon.salmon                      [DEBUG  ]  Could not find any Salmon data in ('.',)
+[2019-05-24 10:08:12,006] multiqc.modules.kallisto.kallisto                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,012] multiqc.modules.slamdunk.slamdunk                  [DEBUG  ]  No slamdunk reports found.
+[2019-05-24 10:08:12,015] multiqc.modules.star.star                          [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,018] multiqc.modules.tophat.tophat                      [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,021] multiqc.modules.bowtie2.bowtie2                    [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,024] multiqc.modules.bowtie1.bowtie1                    [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,027] multiqc.modules.cutadapt.cutadapt                  [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,030] multiqc.modules.trimmomatic.trimmomatic            [DEBUG  ]  Could not find any Trimmomatic data in ('.',)
+[2019-05-24 10:08:12,033] multiqc.modules.skewer.skewer                      [DEBUG  ]  Could not find any data in ('.',)
+[2019-05-24 10:08:12,036] multiqc.modules.fastq_screen.fastq_screen          [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,040] multiqc.modules.fastqc.fastqc                      [DEBUG  ]  Could not find any reports in ('.',)
+[2019-05-24 10:08:12,040] multiqc                                            [INFO   ]  Report      : multiqc_report.html
+[2019-05-24 10:08:12,041] multiqc                                            [INFO   ]  Data        : multiqc_data
+[2019-05-24 10:08:12,041] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpWYmMIZ/multiqc_data/multiqc_bismark_alignment.txt' to '/home/srlab/FROGER/Mapped/multiqc_data'
+[2019-05-24 10:08:12,041] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpWYmMIZ/multiqc_data/multiqc_sources.txt' to '/home/srlab/FROGER/Mapped/multiqc_data'
+[2019-05-24 10:08:12,041] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmpWYmMIZ/multiqc_data/multiqc_general_stats.txt' to '/home/srlab/FROGER/Mapped/multiqc_data'
+[2019-05-24 10:08:12,159] multiqc                                            [INFO   ]  MultiQC complete

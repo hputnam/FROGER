@@ -1,0 +1,4 @@
+Module	Section	Sample Name	Source
+Bismark	alignment	RRBS_R1.trimmed	/home/srlab/FROGER/Mapped/RRBS/RRBS_R1.trimmed_bismark_bt2_PE_report.txt
+Bismark	alignment	MBD_BS_R1.trimmed	/home/srlab/FROGER/Mapped/MBD_BS/MBD_BS_R1.trimmed_bismark_bt2_PE_report.txt
+Bismark	alignment	WGBS_R1.trimmed	/home/srlab/FROGER/Mapped/WGBS/WGBS_R1.trimmed_bismark_bt2_PE_report.txt

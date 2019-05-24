@@ -1,0 +1,4 @@
+Sample	Bismark_aligned_reads	Bismark_percent_aligned
+MBD_BS_R1.trimmed	2150765.0	36.9181304648
+RRBS_R1.trimmed	432651.0	33.8477437889
+WGBS_R1.trimmed	556745.0	22.0757891348
