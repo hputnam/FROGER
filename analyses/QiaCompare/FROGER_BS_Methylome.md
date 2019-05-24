@@ -620,6 +620,7 @@ awk - make it methylKit friendly
 ```
 
 Running perl and awk scripts on cov file from **WGBS extracted**
+
 perl - combine strands and get zero based
 ```
  gunzip WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark.cov.gz 
@@ -635,6 +636,7 @@ awk -f meth_coverage.awk WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_mer
 ```
 
 Running perl and awk scripts on cov file from **MBD extracted**
+
 perl - combine strands and get zero based
 ```
 gunzip MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark.cov.gz 
