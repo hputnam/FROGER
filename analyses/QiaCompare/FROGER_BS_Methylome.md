@@ -601,8 +601,61 @@ C methylated in CHH context:    0.9%
 ```
 
 # Prep for MethylKit
-perl script from Mac here
+Running perl and awk scripts on .cov files generated from Bismark methylation extractor.  Perl script combines reads from both strands while awk script reformats for easy read into methylKit. 
 
+Running perl and awk scripts on cov file from **RRBS extracted**
+
+perl - combine strands and get zero based
+```
+gunzip RRBS_R1.trimmed_bismark_bt2_pe.bismark.cov.gz 
+```
+
+```
+ perl formatting_merging_gff.pl RRBS_R1.trimmed_bismark_bt2_pe.bismark.cov > RRBS_R1.trimmed_bismark_bt2_pe.bismark_merge.cov
+```
+
+awk - make it methylKit friendly
+```
+ awk -f meth_coverage.awk RRBS_R1.trimmed_bismark_bt2_pe.bismark_merge.cov > RRBS_R1.trimmed_bismark_bt2_pe.bismark_reformcov.txt
+```
+
+Running perl and awk scripts on cov file from **WGBS extracted**
+perl - combine strands and get zero based
+```
+ gunzip WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark.cov.gz 
+```
+
+```
+perl formatting_merging_gff.pl WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark.cov > WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_merge.cov 
+```
+
+awk - make it methylKit friendly
+```
+awk -f meth_coverage.awk WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_merge.cov > WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt
+```
+
+Running perl and awk scripts on cov file from **MBD extracted**
+perl - combine strands and get zero based
+```
+gunzip MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark.cov.gz 
+```
+
+```
+perl formatting_merging_gff.pl MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark.cov > MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_merge.cov
+```
+
+awk - make it methylKit friendly
+```
+awk -f meth_coverage.awk MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_merge.cov > MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt
+```
+
+
+
+# Mapping each library separately to see if mapping efficiency differs with input amounts
+
+```
+find *.gz | xargs basename -s _trimmed_1P.fastq.gz | xargs -I{} /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 {}_trimmed_1P.fastq.gz -2 {}_trimmed_2P.fastq.gz -o bismarkout_individual/'
+```
 
 
 
