@@ -30,54 +30,77 @@ gannet.fish.washington.edu/spartina/2019-05-21-FROGER/
 # Obtain feature level fasta files for all samples
 
 ## GENE
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.genes.gff3 \
--fo {}_GENE.fa```
+-fo {}_GENE.fa
+```
 
 ## CDS
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.CDS.gff3 \
--fo {}_CDS.fa```
+-fo {}_CDS.fa
+```
 
 ## EXONS
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica-3.0_genomic.exons.gff3 \
--fo {}_EXONS.fa```
+-fo {}_EXONS.fa
+```
 
 ## CAP
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed CAP_sorted.bed \
--fo {}_CAP.fa```
+-fo {}_CAP.fa
+```
 
 ## WINDOWS
-```find ../*.fa \
+
+```
+find ../*.fa \
 | xargs basename -s .fa | xargs -I{} bedtools getfasta \
 -fi ../{}.fa \
 -bed GCF_002022765.2_C_virginica.3.0_genomic.1kb_window_500bp_step.gff3 \
--fo {}_1kb_window_500bp_step.fa```
+-fo {}_1kb_window_500bp_step.fa
+```
 
 GENE files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/GENE_CpGoe
+
 CDS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CDS_CpGoe
+
 EXONS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/EXONS_CpGoe
+
 CAP files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CAP_CpGoe/
+
 WINDOWS files hosted here: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/WINDOWS_CpGoe/
 
 # Calculate CpG Observed / Expected Ratio 
 
+```
 mkdir ${analyses_dir}
+```
 
 # Create arrays of all FastA files
-fa_array=(${data_dir}/*GENE.fa)
 
+```
+fa_array=(${data_dir}/*{TYPE}.fa)
 
+less
 time \
 for fa in "${fa_array[@]}"
 do
@@ -97,16 +120,16 @@ do
   > ${fn}_tab
   
   # Print only sequences to new file
-  gawk '{ print $2 }' ${fn}_tab > ${fn}_tab2
+  awk '{ print $2 }' ${fn}_tab > ${fn}_tab2
   
   # Delimit sequences on CGs and print the number of fields minus 1 to get the number of CGs present.
-  gawk -F\[Cc][Gg] '{print NF-1}' ${fn}_tab2 > CG
+  awk -F\[Cc][Gg] '{print NF-1}' ${fn}_tab2 > CG
   
   # Delimit sequences on CGs and print the number of fields minus 1 to get the number of Cs present.
-  gawk -F\[Cc] '{print NF-1}' ${fn}_tab2 > C
+  awk -F\[Cc] '{print NF-1}' ${fn}_tab2 > C
   
   # Delimit sequences on CGs and print the number of fields minus 1 to get the number of Gs present.
-  gawk -F\[Gg] '{print NF-1}' ${fn}_tab2 > G
+  awk -F\[Gg] '{print NF-1}' ${fn}_tab2 > G
   
   # Paste these together to have file with the following fields:
     # - FastA header
@@ -122,37 +145,50 @@ do
   > comb
   
   # Do some math to calculate CpG O/E ratio (observed vs expected)
-  gawk '{print $1, "\t", (($4)/($5*$6))*(($3^2)/($3-1))}' comb \
+  awk '{print $1, "\t", (($4)/($5*$6))*(($3^2)/($3-1))}' comb \
   > ID_CpG
 done
+```
 
+GENE executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/GENE_CpGoe/
 
-## Append CpG oe to sample specific headers
+CDS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CDS_CpGoe/
 
-#!/bin/bash
+EXONS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/EXONS_CpGoe/
 
-## Script to append sample-specific headers to each ID_CpG
-## file and join all ID_CpG files.
+CAP executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/CAP_CpGoe/2019-05-22-CAP-Array-Script.sh
 
-## Run file from within this directory.
+WINDOWS executable script: http://gannet.fish.washington.edu/spartina/2019-05-21-FROGER/WINDOWS_CpGoe/2019-05-22-WINDOWS-Array-Script.sh
 
-# Temp file placeholder
-tmp=$(mktemp)
+# Append sample-specific headers to each ID_CpG file and join all ID_CpG files.
 
-# Create array of subdirectories.
-array=(*/)
+```cd ${analyses_dir}```
 
-# Create column headers for ID_CpG files using sample name from directory name.
+## Temp file placeholder
+
+```tmp=$(mktemp)```
+
+## Create array of subdirectories.
+
+```array=(*/)```
+
+## Create column headers for ID_CpG files using sample name from directory name.
+
+```
 for file in ${array[@]}
 do
   gene=$(echo ${file} | awk -F\[._] '{print $6"_"$7}')
   sed "1iID\t${gene}" ${file}ID_CpG > ${file}ID_CpG_labelled
 done
+```
 
-# Create initial file for joining
-cp ${array[0]}ID_CpG_labelled ID_CpG_labelled_all
+## Create initial file for joining
 
-# Loop through array and performs joins.
+```cp ${array[0]}ID_CpG_labelled ID_CpG_labelled_all```
+
+## Loop through array and performs joins.
+
+```
 for file in ${array[@]:1}
 do
   join \
@@ -162,5 +198,6 @@ do
   > ${tmp} \
   && mv ${tmp} ID_CpG_labelled_all
 done
+```
 
 

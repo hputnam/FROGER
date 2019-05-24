@@ -4,3 +4,4 @@ data/bs-method-comparison/Archive.zip
 analyses/2019-05-21-lncRNA/ref_C_virginica-3.0_top_level.gff3
 analyses/2019-05-21-lncRNA/C_virginica-3.0_CG-motif.bed
 .Rhistory
+*.DS_Store
