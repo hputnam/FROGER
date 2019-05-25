@@ -88,3 +88,49 @@ dev.off()
 jpeg("~/GitHub/FROGER_methylKit/analyses/QiaCompare/correlationplot.jpg", width = 4000, height = 3000)
 getCorrelation(meth,plot=TRUE)
 dev.off()
+
+
+############RRBS trim2 (2 bp off 3' end in cutadapt)##############################
+
+library(methylKit)
+
+R2vM_file.list <- list("/home/srlab/FROGER/RAW/RRBS_trim2/bismarkmapped/RRBS.trim2.R1_bismark_bt2_pe.bismark_reformcov.txt",
+                  "/home/srlab/FROGER/Extracted/MBD_BS_extr/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt") 
+R2vM_myobj<-read( R2vM_file.list,pipeline=list(fraction=TRUE,chr.col=2,start.col=3,end.col=3,
+                                     coverage.col=5,strand.col=4,freqC.col=6 ),
+             sample.id=list("RRBS", "MBD"),assembly="Cvir",
+             treatment=c(0,1))
+
+
+#################FILTERING###########################
+R2vM_filtered.myobj=filterByCoverage(R2vM_myobj,lo.count=5)
+
+#################UNITE##############################
+R2vM_meth<-unite(R2vM_filtered.myobj)
+nrow(R2vM_meth)
+head(R2vM_meth)
+jpeg("~/GitHub/FROGER_methylKit/analyses/QiaCompare/R2vM_correlationplot.jpg", width = 1000, height = 600)
+getCorrelation(R2vM_meth,plot=TRUE)
+dev.off()
+
+########################Coverage#####################
+library(data.table)
+RRBS <- fread("/home/srlab/FROGER/Extracted/RRBS_extr/RRBS_R1.trimmed_bismark_bt2_pe.bismark_reformcov.txt")
+nrow(RRBS)
+sum(RRBS$coverage >=5)
+sum(RRBS$coverage >=10)
+
+RRBS2 <- fread("/home/srlab/FROGER/RAW/RRBS_trim2/bismarkmapped/RRBS.trim2.R1_bismark_bt2_pe.bismark_reformcov.txt")
+nrow(RRBS2)
+sum(RRBS2$coverage >=5)
+sum(RRBS2$coverage >=10)
+
+WGBS <- fread("/home/srlab/FROGER/Extracted/WGBS_extr/WGBS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt")
+nrow(WGBS)
+sum(WGBS$coverage >=5)
+sum(WGBS$coverage >=10)
+
+MBD <- fread("/home/srlab/FROGER/Extracted/MBD_BS_extr/MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_reformcov.txt")
+nrow(MBD)
+sum(MBD$coverage >=5)
+sum(MBD$coverage >=10)
