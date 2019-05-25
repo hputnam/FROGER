@@ -653,7 +653,7 @@ awk -f meth_coverage.awk MBD_BS_R1.trimmed_bismark_bt2_pe.deduplicated.bismark_m
 
 
 
-# Mapping each library separately to see if mapping efficiency differs with input amounts
+## Mapping each library separately to see if mapping efficiency differs with input amounts
 
 ```
 find *.gz | xargs basename -s _trimmed_1P.fastq.gz | xargs -I{} /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 {}_trimmed_1P.fastq.gz -2 {}_trimmed_2P.fastq.gz -o bismarkout_individual/'
@@ -672,7 +672,7 @@ srlab@emu:~/FROGER/Mapped$ /home/srlab/.local/bin/multiqc .
 
 These multiQC files can be found in 'analyses'
 
-# Process RRBS data again after hard trimming 2bp from 3' end
+## Process RRBS data again after hard trimming 2bp from 3' end
 
 The reads have already been adapter trimmed by the sequencing facility, so TrimGalore can't be used in -rrbs mode to remove gap filled cytosine positions.  Going to hard trim 2bp off the end off the 3' ends of the reads to see if it explains some of the discordance between the MBD and RRBS data
 
