@@ -672,6 +672,46 @@ srlab@emu:~/FROGER/Mapped$ /home/srlab/.local/bin/multiqc .
 
 These multiQC files can be found in 'analyses'
 
+# Process RRBS data again after hard trimming 2bp from 3' end
+
+The reads have already been adapter trimmed by the sequencing facility, so TrimGalore can't be used in -rrbs mode to remove gap filled cytosine positions.  Going to hard trim 2bp off the end off the 3' ends of the reads to see if it explains some of the discordance between the MBD and RRBS data
+
+remove 2 bases off 3' end of both reads
+
+```
+srlab@emu:~/FROGER/RAW/RRBS_trim2$ cutadapt -u -2 -U -2 -o RRBS.trim2.R1.fastq -p RRBS.trim2.R2.out.2.fastq RRBS_R1.trimmed.fastq.gz RRBS_R2.trimmed.fastq.gz 
+```
+
+
+bismark map
+
+```
+srlab@emu:~/FROGER/RAW/RRBS_trim2/bismarkmapped$ /home/shared/Bismark-0.19.1/bismark --genome /home/srlab/FROGER/GENOME/ --bowtie2 /home/shared/bowtie2-2.3.4.1-linux-x86_64/bowtie2 --non_directional --score_min L,0,-0.6 -1 RRBS.trim2.R1.fastq -2 RRBS.trim2.R2.out.2.fastq 
+```
+
+
+methextract
+```
+/home/shared/Bismark-0.19.1/bismark_methylation_extractor --gzip -p --ignore_r2 2 --bedGraph --zero_based --no_overlap --multicore 20 --buffer_size 20G --cytosine_report --report --genome_folder /home/srlab/FROGER/GENOME /home/srlab/FROGER/Mapped/RRBS/RRBS.trim2.R1_bismark_bt2_pe.bam 
+```
+
+perl and awk
+
+```
+gunzip RRBS_R1.trimmed_bismark_bt2_pe.bismark.cov.gz 
+```
+
+
+```
+perl /home/srlab/FROGER/Extracted/MBD_BS_extr/formatting_merging_gff.pl RRBS.trim2.R1_bismark_bt2_pe.bismark.cov > RRBS.trim2.R1_bismark_bt2_pe.bismark_merge.cov
+```
+
+ 
+```
+awk -f /home/srlab/FROGER/Extracted/MBD_BS_extr/meth_coverage.awk RRBS.trim2.R1_bismark_bt2_pe.bismark_merge.cov > RRBS.trim2.R1_bismark_bt2_pe.bismark_reformcov.txt
+```
+
+
 # STOP HERE
 
 ## Calculate number of CpG in the genome
