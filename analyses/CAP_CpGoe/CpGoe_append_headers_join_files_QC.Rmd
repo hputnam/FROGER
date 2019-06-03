@@ -1,0 +1,114 @@
+---
+title: "Compare CpG oe header and join outputs"
+output: 
+  html_document:
+    df_print: paged
+    code_folding: hide
+    theme: cerulean
+    highlight: tango
+    toc: true
+    toc_depth: 4
+    toc_float: true
+  word_document: default
+editor_options:
+  chunk_output_type: inline
+---
+
+## Load libraries
+```{r}
+library(arsenal)
+```
+
+## Read in data
+```{r}
+new_output <- read.csv("/Volumes/web/metacarcinus/Cvirginica/FROGER/20190225_cpg_oe/ID_CpG_labelled_all", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+
+sam_output <- read.csv("/Volumes/web/metacarcinus/Cvirginica/FROGER/20190225_cpg_oe/ID_CpG_labelled_all.tab", sep = "\t", header = TRUE, stringsAsFactors = FALSE)
+```
+
+## preview data frames
+```{r}
+head(new_output)
+head(sam_output)
+```
+
+## Show differences between data frames
+```{r}
+summary(comparedf(new_output, sam_output, by = "ID"))
+```
+
+## confirm data frames are not identical 
+```{r}
+identical(new_output, sam_output)
+```
+
+
+## reorder columns so they are alphabetical
+```{r}
+colnames(new_output)
+```
+
+```{r}
+new_order <- data.frame(new_output[,-1])
+new_order <- new_order[,order(names(new_order))]
+new_output <- cbind(new_output[,"ID"], new_order)
+colnames(new_output)[1] <- "ID"
+```
+
+```{r}
+sam_order <- data.frame(sam_output[,-1])
+sam_order <- sam_order[,order(names(sam_order))]
+sam_output <- cbind(sam_output[,"ID"], sam_order)
+colnames(sam_output)[1] <- "ID"
+colnames(sam_output) <- gsub("\\.","_", colnames(sam_output))
+
+```
+
+## Check column names are the same
+```{r}
+colnames(new_output)
+```
+
+```{r}
+colnames(sam_output)
+```
+
+## See if data frames are identical
+```{r}
+identical(new_output, sam_output)
+```
+## Show differences between data frames
+```{r}
+summary(comparedf(new_output, sam_output, by = "ID"))
+```
+
+## There are still a couple differences in the column names
+## Change column names to match
+
+```{r}
+colnames(sam_output[,32:37])
+colnames(new_output[,32:37])
+
+colnames(sam_output)[32:37] <- colnames(new_output)[32:37]
+
+```
+
+```{r}
+colnames(sam_output)[47]
+colnames(new_output)[47]
+
+colnames(sam_output)[47] <- colnames(new_output)[47]
+```
+
+
+## See if data frames are identical
+```{r}
+identical(new_output, sam_output)
+```
+
+## Show differences between data frames
+```{r}
+summary(comparedf(new_output, sam_output, by = "ID"))
+```
+
+## After ordering columns the same way and making column names consistent, tables show the exact same data confirming nothing weird happened when joining files using the new script
